@@ -1,0 +1,19 @@
+
+
+@font-face {
+  font-family: 'leaguegothiccondensed';
+  src: url('assets/fonts/leaguegothic-condensedregular-webfont.woff2') format('woff2'),
+       url('assets/fonts/leaguegothic-condensedregular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'leaguegothiregular';
+  src: url('assets/fonts/leaguegothic-regular-webfont.woff2') format('woff2'),
+       url('assets/fonts/leaguegothic-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'sourcecodepro';
+  src: url('assets/fonts/sourcecodepro-variablefont_wght-webfont.woff2') format('woff2'),
+       url('assets/fonts/sourcecodepro-variablefont_wght-webfont.woff') format('woff');
+}
