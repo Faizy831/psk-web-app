@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/psk-web-app/static/css/main.4ae43927.css",
+    "main.js": "/psk-web-app/static/js/main.c3f2a4b5.js",
+    "static/js/787.8db48a85.chunk.js": "/psk-web-app/static/js/787.8db48a85.chunk.js",
+    "static/media/Bg1.png": "/psk-web-app/static/media/Bg1.19c721e125a79470b3b0.png",
+    "static/media/Bg2.png": "/psk-web-app/static/media/Bg2.4a9cd66c1b72102e15cd.png",
+    "static/media/Bg3.png": "/psk-web-app/static/media/Bg3.4a9cd66c1b72102e15cd.png",
+    "static/media/ProfilePic.png": "/psk-web-app/static/media/ProfilePic.5507ed7986bd77197a80.png",
+    "static/media/FooterIcon.png": "/psk-web-app/static/media/FooterIcon.ece2597ced2e7feb7a1b.png",
+    "static/media/speedChart.png": "/psk-web-app/static/media/speedChart.c12e995fb19100b0373a.png",
+    "static/media/longpassChart.png": "/psk-web-app/static/media/longpassChart.4bb93b0957db657537b3.png",
+    "static/media/verticaljump.png": "/psk-web-app/static/media/verticaljump.db59d63b58eb72a5872b.png",
+    "static/media/sourcecodepro-variablefont_wght-webfont.woff": "/psk-web-app/static/media/sourcecodepro-variablefont_wght-webfont.41de0690760791b72373.woff",
+    "static/media/leaguegothic-condensedregular-webfont.woff": "/psk-web-app/static/media/leaguegothic-condensedregular-webfont.8d129a5fd9eccd06f56d.woff",
+    "static/media/leaguegothic-regular-webfont.woff": "/psk-web-app/static/media/leaguegothic-regular-webfont.92f79c6f833a2983d3f4.woff",
+    "static/media/sourcecodepro-variablefont_wght-webfont.woff2": "/psk-web-app/static/media/sourcecodepro-variablefont_wght-webfont.bf84cbb08c8189d2bea1.woff2",
+    "static/media/leaguegothic-condensedregular-webfont.woff2": "/psk-web-app/static/media/leaguegothic-condensedregular-webfont.3b78241ee29b77e98e79.woff2",
+    "static/media/leaguegothic-regular-webfont.woff2": "/psk-web-app/static/media/leaguegothic-regular-webfont.5a61edcefd437e994fec.woff2",
+    "static/media/ShotBoard.png": "/psk-web-app/static/media/ShotBoard.b9e990ea29b0386dcc93.png",
+    "static/media/AgilityIcon.png": "/psk-web-app/static/media/AgilityIcon.aa2aeae2bc78bd1b3bae.png",
+    "static/media/AverageIcon.png": "/psk-web-app/static/media/AverageIcon.51f9bb9125bf73b298b1.png",
+    "index.html": "/psk-web-app/index.html",
+    "main.4ae43927.css.map": "/psk-web-app/static/css/main.4ae43927.css.map",
+    "main.c3f2a4b5.js.map": "/psk-web-app/static/js/main.c3f2a4b5.js.map",
+    "787.8db48a85.chunk.js.map": "/psk-web-app/static/js/787.8db48a85.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ae43927.css",
+    "static/js/main.c3f2a4b5.js"
+  ]
+}
