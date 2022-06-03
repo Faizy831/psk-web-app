@@ -35,7 +35,7 @@ export const useStyles = makeStyles((theme) => ({
       height: 50,
     },
     ["@media (max-width: 450px)"]: {
-      marginLeft: "8rem",
+      marginLeft: "0rem",
     },
   },
   ChartWrapper: {
@@ -58,7 +58,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     ["@media (max-width: 450px)"]: {
       width: "95%",
-      height: 200,
+      height: 240,
     },
   },
   Wrapper: {
