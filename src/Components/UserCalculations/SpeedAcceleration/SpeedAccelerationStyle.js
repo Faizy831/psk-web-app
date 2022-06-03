@@ -57,8 +57,8 @@ export const useStyles = makeStyles((theme) => ({
       height: 300,
     },
     ["@media (max-width: 450px)"]: {
-      width: "100%",
-      height: 250,
+      width: "95%",
+      height: 200,
     },
   },
   Wrapper: {
