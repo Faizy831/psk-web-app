@@ -9,7 +9,9 @@ const SpeedAcceleration = () => {
   return (
     <div className={classes.MainContainer}>
       <div className={classes.HeadingWrapper}>
-        <h3 className={classes.Heading}>SPEED AND ACCELERATION</h3>
+        <h3 className={classes.Heading}>
+          SPEED AND <span className={classes.SpanResponsive}>ACCELERATION</span>
+        </h3>
         <img src={Clock} alt="" className={classes.Clock} />
       </div>
       <div className={classes.ChartWrapper}>

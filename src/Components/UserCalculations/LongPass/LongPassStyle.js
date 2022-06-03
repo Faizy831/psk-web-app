@@ -1,14 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
-  MainContianer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
-  },
+  MainContianer: {},
   HeadingWrapper: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
   },
   Heading: {
     color: theme.colors.primary.yellow,
@@ -16,11 +13,21 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: theme.fonts.sizes.font2XLLL,
     fontWeight: 400,
     margin: 0,
+    ["@media (max-width: 590px)"]: {
+      fontSize: 30,
+    },
   },
   LongPass: {
     width: 61,
     height: 61,
     marginLeft: "17rem",
+    ["@media (max-width: 590px)"]: {
+      width: 50,
+      height: 50,
+    },
+    ["@media (max-width: 450px)"]: {
+      marginLeft: "13rem",
+    },
   },
   longpassChart: {
     display: "flex",
@@ -33,24 +40,36 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   //LINECHART STYLING
+  LineChartWrapper: {
+    marginTop: 30,
+  },
   LineChartContianer: {
-    position: "relative",
-    paddingTop: "2rem",
+    paddingTop: "1rem",
   },
   LineChartText: {
     color: theme.colors.secondary.lightBlue,
-    fontFamily: theme.fonts.family.quaternary,
+    fontFamily: theme.fonts.family.primary,
     fontSize: theme.fonts.sizes.font2XL,
-    fontWeight: "bold",
+    fontWeight: 700,
     margin: 0,
     textAlign: "center",
     marginBottom: 10,
   },
-  Line: {
-    position: "absolute",
-    left: "4rem",
-    height: 2,
-    width: 320,
-    backgroundColor: theme.colors.secondary.secondary,
+  Divider: {
+    "&.MuiDivider-root": {
+      backgroundColor: theme.colors.secondary.secondary,
+      height: 2,
+      width: "70%",
+      margin: "auto",
+      ["@media (max-width: 450px)"]: {
+        width: "85%",
+      },
+    },
+  },
+  ScoreWrapper: {
+    paddingTop: "2rem",
+    ["@media (max-width: 450px)"]: {
+      paddingTop: "1rem",
+    },
   },
 }));

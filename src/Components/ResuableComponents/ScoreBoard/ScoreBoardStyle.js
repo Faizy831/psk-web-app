@@ -8,7 +8,10 @@ export const useStyles = makeStyles((theme) => ({
     "&.MuiDivider-root": {
       backgroundColor: theme.colors.secondary.purple,
       height: 2,
-      width: 467,
+      width: "100%",
+      ["@media (max-width: 590px)"]: {
+        width: "100%",
+      },
     },
   },
   Vector2: {
@@ -17,8 +20,8 @@ export const useStyles = makeStyles((theme) => ({
     marginRight: 20,
   },
   Wrapper: {
-    display: "flex",
-    flexDirection: "column",
+    // display: "flex",
+    // flexDirection: "column",
   },
   ScoreWrapper: {
     display: "flex",

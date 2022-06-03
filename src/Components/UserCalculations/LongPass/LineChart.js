@@ -1,4 +1,5 @@
 import React from "react";
+import Divider from "@material-ui/core/Divider";
 import { useStyles } from "./LongPassStyle";
 
 const LineChart = ({ title }) => {
@@ -6,7 +7,7 @@ const LineChart = ({ title }) => {
   return (
     <div className={classes.LineChartContianer}>
       <h1 className={classes.LineChartText}>{title}</h1>
-      <span className={classes.Line}></span>
+      <Divider className={classes.Divider} />
     </div>
   );
 };

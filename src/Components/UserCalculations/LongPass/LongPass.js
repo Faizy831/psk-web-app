@@ -33,7 +33,7 @@ const LongPass = ({ Heading, img, className }) => {
           <LineChart title="START LINE" />
         </div>
       </div>
-      <div>
+      <div className={classes.ScoreWrapper}>
         <ScoreBoard />
       </div>
     </div>
