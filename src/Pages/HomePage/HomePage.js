@@ -14,11 +14,11 @@ const HomePage = () => {
     <div className={classes.MainContianer}>
       <UserProfile />
       <UserCalculations />
-      {/* <UserPositions />
+      {/* <UserPositions /> */}
       <UserPerfomance />
-      <UserAgilityAndDribble />
-      <UserLongPassGkReaction />
-      <Footer /> */}
+      {/* <UserAgilityAndDribble /> */}
+      {/* <UserLongPassGkReaction /> */}
+      {/* <Footer /> */}
     </div>
   );
 };
