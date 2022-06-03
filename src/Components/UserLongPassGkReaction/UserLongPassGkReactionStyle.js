@@ -18,11 +18,20 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     flexWrap: "wrap",
     padding: "5rem 0rem 5rem 0rem",
-
-
   },
   HandImg: {
     width: 84,
     height: 60,
+    marginLeft: "17rem",
+    ["@media (max-width: 590px)"]: {
+      width: 70,
+      height: 50,
+    },
+    ["@media (max-width: 450px)"]: {
+      marginLeft: "10rem",
+    },
+    ["@media (max-width: 400px)"]: {
+      marginLeft: "8rem",
+    },
   },
 }));

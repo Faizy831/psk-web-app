@@ -5,8 +5,21 @@ export const useStyles = makeStyles((theme) => ({
   wrapper: {
     backgroundImage: `url(${Bg1})`,
     width: "100%",
+    minHeight: 1024,
     backgroundSize: "100% auto",
     backgroundRepeat: "no-repeat",
+    ["@media (max-width: 1519px)"]: {
+      backgroundSize: "100% 100%",
+      minHeight: "100%",
+    },
+    ["@media (max-width: 872px)"]: {
+      backgroundSize: "100% 100%",
+      minHeight: 700,
+    },
+    ["@media (max-width: 590px)"]: {
+      backgroundSize: "100% 100%",
+      minHeight: 600,
+    },
   },
   container: {
     display: "flex",
@@ -18,6 +31,14 @@ export const useStyles = makeStyles((theme) => ({
   FooterIcon: {
     width: 490,
     height: 488,
+    ["@media (max-width: 590px)"]: {
+      width: "100%",
+      height: 400,
+    },
+    ["@media (max-width: 450px)"]: {
+      width: "100%",
+      height: 350,
+    },
   },
   showcase: {
     paddingTop: "71px",

@@ -17,8 +17,8 @@ const HomePage = () => {
       {/* <UserPositions /> */}
       <UserPerfomance />
       <UserAgilityAndDribble />
-      {/* <UserLongPassGkReaction /> */}
-      {/* <Footer /> */}
+      <UserLongPassGkReaction />
+      <Footer />
     </div>
   );
 };
