@@ -39,11 +39,12 @@ export const useStyle = makeStyles((theme) => ({
   DribbleImg: {
     width: 137,
     height: 20,
-    marginLeft: "-8rem"
+    marginLeft: "-8rem",
   },
   mainContainer: {
     display: "flex",
     justifyContent: "space-around",
+    flexWrap: "wrap",
     alignItems: "center",
     minHeight: 1000,
   },

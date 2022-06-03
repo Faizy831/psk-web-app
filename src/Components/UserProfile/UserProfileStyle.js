@@ -16,6 +16,10 @@ export const useStyles = makeStyles((theme) => ({
       backgroundSize: "100% 100%",
       minHeight: 700,
     },
+    ["@media (max-width: 590px)"]: {
+      backgroundSize: "100% 100%",
+      minHeight: 600,
+    },
   },
   ContentWrapper: {},
   LogoWrapper: {
