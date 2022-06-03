@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { Flare } from "@material-ui/icons";
 import Bg2 from "../../assets/Bg2.png";
 
 export const useStyle = makeStyles((theme) => ({
@@ -19,10 +18,21 @@ export const useStyle = makeStyles((theme) => ({
   heading: {
     fontWeight: 400,
     fontSize: theme.fonts.sizes.font2XLLL,
+    ["@media (max-width: 590px)"]: {
+      fontSize: 30,
+    },
   },
   AgilityIcon: {
     width: 44,
     height: 68,
+    marginLeft: "20rem",
+    ["@media (max-width: 590px)"]: {
+      width: 38,
+      height: 60,
+    },
+    ["@media (max-width: 450px)"]: {
+      marginLeft: "15rem",
+    },
   },
   normal: {
     width: 137,
@@ -31,15 +41,31 @@ export const useStyle = makeStyles((theme) => ({
   large: {
     width: 128,
     height: 77,
+    ["@media (max-width: 590px)"]: {
+      width: 94,
+      height: 57,
+      marginLeft: "-5rem",
+    },
   },
   DribbleIcon: {
     width: 53,
     height: 62,
+    marginLeft: "20rem",
+    ["@media (max-width: 590px)"]: {
+      width: 43,
+      height: 50,
+    },
+    ["@media (max-width: 450px)"]: {
+      marginLeft: "15rem",
+    },
   },
   DribbleImg: {
     width: 137,
     height: 20,
     marginLeft: "-8rem",
+    ["@media (max-width: 590px)"]: {
+      marginLeft: "-3rem",
+    },
   },
   mainContainer: {
     display: "flex",
@@ -54,6 +80,9 @@ export const useStyle = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "space-around",
     minHeight: 1000,
+    ["@media (max-width: 590px)"]: {
+      minHeight: 500,
+    },
   },
   section2: {
     maxWidth: "500px",
@@ -61,6 +90,9 @@ export const useStyle = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "space-around",
     minHeight: 1000,
+    ["@media (max-width: 590px)"]: {
+      minHeight: 500,
+    },
   },
   divider: {
     borderBottom: "2px solid  #8F908F",
@@ -79,6 +111,9 @@ export const useStyle = makeStyles((theme) => ({
     margin: "0px",
     padding: "0px",
     margin: "10px 2px",
+    ["@media (max-width: 590px)"]: {
+      fontSize: theme.fonts.sizes.fontXL,
+    },
   },
   Attemptnbr: {
     fontSize: "44px",

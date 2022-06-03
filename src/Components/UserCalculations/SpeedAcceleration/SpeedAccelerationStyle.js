@@ -57,7 +57,7 @@ export const useStyles = makeStyles((theme) => ({
       height: 300,
     },
     ["@media (max-width: 450px)"]: {
-      width: "100%",
+      width: "85%",
       height: 240,
     },
   },
