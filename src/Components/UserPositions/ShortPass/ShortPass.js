@@ -1,6 +1,7 @@
 import React from "react";
 import Football from "../../../assets/Football.png";
 import Text from "../../ResuableComponents/Text/Text";
+import Numbers from "./Numbers";
 import Attempt from "./Attempt";
 import ScoreBoard from "../../ResuableComponents/ScoreBoard/ScoreBoard";
 import { useStyles } from "./ShortPassStyle";
@@ -14,7 +15,7 @@ const ShortPass = () => {
         <img src={Football} alt="" className={classes.FootballImg} />
       </div>
       <div className={classes.TextWrapper}>
-        <Text title="RATIO TOUCHES TO TARGET" />
+        <Text title="RATIO TOUCHES TO TARGET" className={classes.TouchesText} />
         <Text title="WEAK FOOT USAGE" className={classes.MiddleText} />
         <Text title="TARGET" />
       </div>

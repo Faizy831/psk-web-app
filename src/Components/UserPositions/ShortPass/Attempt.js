@@ -1,6 +1,7 @@
 import React from "react";
 import { useStyles } from "./ShortPassStyle";
 import Divider from "@material-ui/core/Divider";
+import Numbers from "./Numbers";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 const Attempt = ({ title }) => {
@@ -11,6 +12,11 @@ const Attempt = ({ title }) => {
         {title}
         <span className={classes.AttemptSpan}>ATTEMPT</span>
       </h3>
+      <div className={classes.NumbersWrapper}>
+        <Numbers title="1,8" />
+        <Numbers title="17%" className={classes.Percentage} />
+        <Numbers title="08" />
+      </div>
       <div className={classes.ProgressContainer}>
         <div className={classes.ProgressWrapper}>
           <LinearProgress

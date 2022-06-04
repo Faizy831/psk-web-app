@@ -1,7 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
-  MainContainer: {},
+  MainContainer: {
+    display: "none"
+  },
   HeadingWrapper: {
     display: "flex",
     justifyContent: "space-between",
@@ -17,6 +19,7 @@ export const useStyles = makeStyles((theme) => ({
   ShotImg: {
     width: 83,
     height: 60,
+    marginLeft: "12rem",
   },
 
   TextWrapper: {
@@ -79,8 +82,6 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   ScoreWrapper: {
-    display: "flex",
-    justifyContent: "center",
-    paddingTop: "1.7rem",
+    paddingTop: "1.4rem",
   },
 }));
