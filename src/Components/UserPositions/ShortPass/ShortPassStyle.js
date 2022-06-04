@@ -114,11 +114,11 @@ export const useStyles = makeStyles((theme) => ({
     width: 100,
     ["@media (max-width: 590px)"]: {
       width: 50,
-      margin: "0px 10px"
+      margin: "0px 10px",
     },
     ["@media (max-width: 450px)"]: {
       width: 50,
-      margin: "0px -10px"
+      margin: "0px -10px",
     },
   },
   ScoreWrapper: {
@@ -150,9 +150,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   Numbers: {
     color: theme.colors.secondary.purple,
-    fontFamily: theme.fonts.family.tertiary,
-    fontSize: 40,
-    fontWeight: 400,
+    fontFamily: theme.fonts.family.primary,
+    fontSize: 30,
+    fontWeight: 700,
     margin: 0,
     ["@media (max-width: 590px)"]: {
       fontSize: 30,

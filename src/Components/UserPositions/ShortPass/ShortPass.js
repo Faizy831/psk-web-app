@@ -1,7 +1,6 @@
 import React from "react";
 import Football from "../../../assets/Football.png";
 import Text from "../../ResuableComponents/Text/Text";
-import Numbers from "./Numbers";
 import Attempt from "./Attempt";
 import ScoreBoard from "../../ResuableComponents/ScoreBoard/ScoreBoard";
 import { useStyles } from "./ShortPassStyle";
