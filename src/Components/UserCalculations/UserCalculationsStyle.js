@@ -19,7 +19,7 @@ export const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     padding: "5rem 0rem 5rem 0rem",
     ["@media (max-width: 590px)"]: {
-      padding: "1.5rem 0rem 5rem 0rem",
+      padding: "3rem 0rem 3rem 0rem",
     },
   },
 }));

@@ -18,6 +18,9 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     flexWrap: "wrap",
     padding: "5rem 0rem 5rem 0rem",
+    ["@media (max-width: 590px)"]: {
+      padding: "3rem 0rem 3rem 0rem",
+    },
   },
   HandImg: {
     width: 84,
@@ -26,6 +29,7 @@ export const useStyles = makeStyles((theme) => ({
     ["@media (max-width: 590px)"]: {
       width: 70,
       height: 50,
+      marginLeft: "14rem",
     },
     ["@media (max-width: 450px)"]: {
       marginLeft: "10rem",

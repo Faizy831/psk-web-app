@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${Bg2})`,
     width: "100%",
     height: "100%",
-    minHeight: 1024,
+    minHeight: 980,
     backgroundSize: "100% 100%",
     backgroundRepeat: "no-repeat",
     ["@media (max-width: 872px)"]: {
@@ -18,6 +18,9 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-around",
     flexWrap: "wrap",
-    paddingTop: "5rem",
+    padding: "5rem 0rem 0rem 0rem",
+    ["@media (max-width: 590px)"]: {
+      padding: "3rem 0rem 3rem 0rem",
+    },
   },
 }));

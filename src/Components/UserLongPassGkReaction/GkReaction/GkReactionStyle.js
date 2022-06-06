@@ -6,7 +6,12 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "space-between",
     ["@media (max-width: 590px)"]: {
-      marginTop: "5rem",
+      marginTop: "50px",
+    },
+  },
+  ComWrapper: {
+    ["@media (max-width: 590px)"]: {
+      padding: "3rem 0rem 3rem 0rem",
     },
   },
   Heading: {
@@ -26,6 +31,7 @@ export const useStyles = makeStyles((theme) => ({
     ["@media (max-width: 590px)"]: {
       width: 70,
       height: 50,
+      marginLeft: "16rem",
     },
     ["@media (max-width: 450px)"]: {
       marginLeft: "13rem",

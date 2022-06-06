@@ -5,6 +5,9 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-around",
     flexWrap: "wrap",
-    paddingTop: "5rem",
+    padding: "5rem 0rem 1rem 0rem",
+    ["@media (max-width: 590px)"]: {
+      padding: "3rem 0rem 3rem 0rem",
+    },
   },
 }));

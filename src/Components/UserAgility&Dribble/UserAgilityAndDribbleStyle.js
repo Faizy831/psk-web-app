@@ -73,6 +73,9 @@ export const useStyle = makeStyles((theme) => ({
     flexWrap: "wrap",
     alignItems: "center",
     minHeight: 1000,
+    ["@media (max-width: 590px)"]: {
+      padding: "1rem 0rem 1rem 0rem",
+    },
   },
   section1: {
     maxWidth: "500px",
