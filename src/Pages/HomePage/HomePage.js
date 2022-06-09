@@ -8,6 +8,12 @@ import UserAgilityAndDribble from "../../Components/UserAgility&Dribble/UserAgil
 import Footer from "../../Components/Footer/Footer";
 import { useStyles } from "./HomeStyle";
 
+import DataAPI from "../../api/DataAPI";
+import ExerciseAPI from "../../api/ExerciseAPI";
+import PlayerAPI from "../../api/PlayerAPI";
+import PlayerTrainingSessionAPI from "../../api/PlayerTrainingSessionAPI";
+import StatisticAPI from "../../api/StatisticAPI";
+
 import { Amplify, DataStore } from "aws-amplify";
 import awsconfig from "./aws-exports";
 import { useAuthenticator, withAuthenticator } from '@aws-amplify/ui-react';
@@ -28,7 +34,7 @@ import { useAuthenticator, withAuthenticator } from '@aws-amplify/ui-react';
   
   configureAmplify();
   DataStore.start();
-  
+
 
 const HomePage = () => {
   const classes = useStyles();

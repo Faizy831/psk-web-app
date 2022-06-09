@@ -1,6 +1,7 @@
 import { Statistic } from "../models";
 import { DataStore } from "aws-amplify";
 import ExerciseAPI from "./ExerciseAPI";
+import PlayerAPI from "./PlayerAPI";
 
 
 
@@ -292,6 +293,53 @@ const getTSPlayerStatisticAccuracy = async (playerID, trainingSessionID) => {
     }
 }
 
+/**
+ * Query a Player Statistics of specific TS of Speed exercise
+ */
+ const getTSPlayerFinalScore = async (playerID, trainingSessionID) => {
+
+    let position = await PlayerAPI.getPlayerPosition(playerID)
+    let final_score_array
+   
+    //If player is GK
+    if(position === "GK") { 
+        //Speed, Acceleration, LongPass, ShortPass, Agility, LongPassHand, GoalKeeper
+        array_aux=[await getTSPlayerStatisticSpeed(playerID, trainingSessionID), 
+            await getTSPlayerStatisticAcceleration(playerID, trainingSessionID), 
+            await getTSPlayerStatisticLongPass(playerID, trainingSessionID), 
+            await getTSPlayerStatisticShortPass(playerID, trainingSessionID), 
+            await getTSPlayerStatisticAgility(playerID, trainingSessionID), 
+            await getTSPlayerStatisticLongPassHand(playerID, trainingSessionID), 
+            await getTSPlayerStatisticGoalKeeper(playerID, trainingSessionID)]
+        let final_score = 0.12*(array_aux[0]+array_aux[1])/2 + 0.13*array_aux[2] + 0.12*array_aux[3] + 0.2*array_aux[4] + 0.13*array_aux[5] + 0.3*array_aux[6]
+        
+        final_score_array = final_score
+      }
+      else {
+        array_aux=[await getTSPlayerStatisticAgility(playerID, trainingSessionID), 
+        await getTSPlayerStatisticAcceleration(playerID, trainingSessionID), 
+        await getTSPlayerStatisticShooting(playerID, trainingSessionID), 
+        await getTSPlayerStatisticDribble(playerID, trainingSessionID), 
+        await getTSPlayerStatisticSpeed(playerID, trainingSessionID), 
+        await getTSPlayerStatisticLongPass(playerID, trainingSessionID), 
+        await getTSPlayerStatisticStamina(playerID, trainingSessionID), 
+        await getTSPlayerStatisticShortPass(playerID, trainingSessionID)]
+
+        //decrescente
+        let array_sorted = array_aux.sort(function(a, b){return b - a});
+        for (let m = 0; m < array_aux.length; m++) {
+          sum = sum + array_aux[m]
+        }
+        let mean = sum/(array_aux.length)
+
+        let final_score = array_sorted[0] + (array_sorted[0]+array_sorted[1]+array_sorted[2])/3 + mean + (array_sorted[2] + array_sorted[3] + array_sorted[4] + array_sorted[5])/4
+
+        final_score_array = final_score
+      }
+
+      return final_score_array
+}
+
 
 
 /**
@@ -341,6 +389,7 @@ const StatisticAPI = {
     getTSPlayerStatisticLongPass: getTSPlayerStatisticLongPass,
     getTSPlayerStatisticSpeed: getTSPlayerStatisticSpeed,
     getTrainingSessionStatistics: getTrainingSessionStatistics,
+    getTSPlayerFinalScore: getTSPlayerFinalScore,
     getTSPlayerStatistic : getTSPlayerStatistic,
 }
 
