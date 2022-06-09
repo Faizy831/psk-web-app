@@ -15,25 +15,24 @@ import PlayerTrainingSessionAPI from "../../api/PlayerTrainingSessionAPI";
 import StatisticAPI from "../../api/StatisticAPI";
 
 import { Amplify, DataStore } from "aws-amplify";
-import awsconfig from "./aws-exports";
+import awsconfig from "../../aws-exports";
 import { useAuthenticator, withAuthenticator } from '@aws-amplify/ui-react';
 
 /**
  * Initial configuration of AWS Amplify
  */
- const configureAmplify = () => {
-    timeout = setTimeout(setShowLoading(false), 5000);
-    try {
-      Amplify.configure(awsconfig);
-      console.log("Amplify configured!");
-      //DataStore.clear();
-    } catch (error) {
-      console.log("Error configuring Amplify\n" + error);
-    }
+const configureAmplify = () => {
+  try {
+    Amplify.configure(awsconfig);
+    console.log("Amplify configured!");
+    //DataStore.clear();
+  } catch (error) {
+    console.log("Error configuring Amplify\n" + error);
   }
+}
   
-  configureAmplify();
-  DataStore.start();
+configureAmplify();
+DataStore.start();
 
 
 const HomePage = () => {

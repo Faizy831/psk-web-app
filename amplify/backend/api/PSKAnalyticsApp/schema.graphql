@@ -1,0 +1,162 @@
+type Player @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Username: String
+  FirstName: String
+  LastName: String
+  IDCard: String
+  Gender: String
+  BirthDate: AWSDate
+  Nationality: String
+  Position: String
+  StrongFoot: String
+  PlayerTrainingSessions: [PlayerTrainingSession] @hasMany(indexName: "byPlayer", fields: ["id"])
+  ClubPlayers: [ClubPlayer] @hasMany(indexName: "byPlayer", fields: ["id"])
+  Scores: [Score] @hasMany(indexName: "byPlayer", fields: ["id"])
+  PlayerMedias: [PlayerMedia] @hasMany(indexName: "byPlayer", fields: ["id"])
+  Statistics: [Statistic] @hasMany(indexName: "byPlayer", fields: ["id"])
+  Deleted: Boolean
+}
+
+type CoachesTrainingSession @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Deleted: Boolean
+  Ranking: Int
+  coachID: ID! @index(name: "byCoach")
+  trainingsessionID: ID! @index(name: "byTrainingSession")
+}
+
+type TrainingSession @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Type: String
+  StartDate: AWSDateTime
+  EndDate: AWSDateTime
+  Location: String
+  Table: String
+  Field: String
+  FinalScores: String
+  CoachTable: String
+  CoachesTrainingSessions: [CoachesTrainingSession] @hasMany(indexName: "byTrainingSession", fields: ["id"])
+  PlayerTrainingSessions: [PlayerTrainingSession] @hasMany(indexName: "byTrainingSession", fields: ["id"])
+  ClubTrainingSessions: [ClubTrainingSession] @hasMany(indexName: "byTrainingSession", fields: ["id"])
+  Scores: [Score] @hasMany(indexName: "byTrainingSession", fields: ["id"])
+  PlayerMedias: [PlayerMedia] @hasMany(indexName: "byTrainingSession", fields: ["id"])
+  Trainings: [Training] @hasMany(indexName: "byTrainingSession", fields: ["id"])
+  Statistics: [Statistic] @hasMany(indexName: "byTrainingSession", fields: ["id"])
+  Deleted: Boolean
+}
+
+type Kit @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Tag: String
+  PlayerTrainingSessions: [PlayerTrainingSession] @hasMany(indexName: "byKit", fields: ["id"])
+}
+
+type Club @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  Country: String
+  Logo: String
+  ClubCoaches: [ClubCoach] @hasMany(indexName: "byClub", fields: ["id"])
+  ClubTrainingSessions: [ClubTrainingSession] @hasMany(indexName: "byClub", fields: ["id"])
+  ClubPlayers: [ClubPlayer] @hasMany(indexName: "byClub", fields: ["id"])
+  Deleted: Boolean
+}
+
+type Exercise @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Type: String
+  Table: String
+  Description: String
+  Name: String
+  Scores: [Score] @hasMany(indexName: "byExercise", fields: ["id"])
+  Trainings: [Training] @hasMany(indexName: "byExercise", fields: ["id"])
+  Statistics: [Statistic] @hasMany(indexName: "byExercise", fields: ["id"])
+}
+
+type PlayerTrainingSession @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  GroupNumber: String
+  Deleted: Boolean
+  trainingsessionID: ID! @index(name: "byTrainingSession")
+  kitID: ID! @index(name: "byKit")
+  playerID: ID! @index(name: "byPlayer")
+}
+
+type ClubTrainingSession @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Deleted: Boolean
+  clubID: ID! @index(name: "byClub")
+  trainingsessionID: ID! @index(name: "byTrainingSession")
+}
+
+type ClubPlayer @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Deleted: Boolean
+  clubID: ID! @index(name: "byClub")
+  playerID: ID! @index(name: "byPlayer")
+}
+
+type ClubCoach @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Deleted: Boolean
+  coachID: ID! @index(name: "byCoach")
+  clubID: ID! @index(name: "byClub")
+}
+
+type Score @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Data: [Int]
+  Table: String
+  Deleted: Boolean
+  trainingsessionID: ID! @index(name: "byTrainingSession")
+  exerciseID: ID! @index(name: "byExercise")
+  playerID: ID! @index(name: "byPlayer")
+}
+
+type PlayerMedia @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Photos: [String]
+  Videos: [String]
+  Cloudinary: String
+  Card: [String]
+  Dashboard: [String]
+  Deleted: Boolean
+  trainingsessionID: ID! @index(name: "byTrainingSession")
+  playerID: ID! @index(name: "byPlayer")
+}
+
+type Statistic @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Result: [String]
+  Verified: String
+  Deleted: Boolean
+  playerID: ID! @index(name: "byPlayer")
+  trainingsessionID: ID! @index(name: "byTrainingSession")
+  exerciseID: ID! @index(name: "byExercise")
+  coachID: ID! @index(name: "byCoach")
+}
+
+type Training @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Mapping: String
+  Deleted: Boolean
+  trainingsessionID: ID! @index(name: "byTrainingSession")
+  exerciseID: ID! @index(name: "byExercise")
+  coachID: ID! @index(name: "byCoach")
+}
+
+type Coach @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Username: String
+  FirstName: String
+  LastName: String
+  Mobile: String
+  Email: String
+  Ranking: Int
+  Deleted: Boolean
+  CoachesTrainingSessions: [CoachesTrainingSession] @hasMany(indexName: "byCoach", fields: ["id"])
+  ClubCoaches: [ClubCoach] @hasMany(indexName: "byCoach", fields: ["id"])
+  Trainings: [Training] @hasMany(indexName: "byCoach", fields: ["id"])
+  Statistics: [Statistic] @hasMany(indexName: "byCoach", fields: ["id"])
+}
+ 
