@@ -1,5 +1,5 @@
 import React from "react";
-import VerticalJumpImg from "../../../assets/VerticalJump.png";
+import VerticalJumpImg from "../../../assets/verticaljump.png";
 import VerticaljumpImg from "../../../assets/verticaljump.png";
 import ScoreBoard from "../../ResuableComponents/ScoreBoard/ScoreBoard";
 import { useStyles } from "./VerticalJumpStyle";
