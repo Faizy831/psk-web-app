@@ -1,6 +1,6 @@
 import React from "react";
 import Clock from "../../../assets/Clock.png";
-import SpeedChart from "../../../assets/speedChart.png";
+import SpeedChart from "../SpeedAcceleration/SpeedChart";
 import ScoreBoard from "../../ResuableComponents/ScoreBoard/ScoreBoard";
 import { useStyles } from "./SpeedAccelerationStyle";
 
@@ -15,7 +15,7 @@ const SpeedAcceleration = () => {
         <img src={Clock} alt="" className={classes.Clock} />
       </div>
       <div className={classes.ChartWrapper}>
-        <img src={SpeedChart} alt="" className={classes.SpeedChartimg} />
+        <SpeedChart />
       </div>
       <div className={classes.Wrapper}>
         <ScoreBoard />
