@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProfilePic from "../../../assets/ProfilePic.png";
 import Vector from "../../../assets/Vector.png";
 import Vector2 from "../../../assets/Vector2.png";
 import { useStyles } from "./UserInfoStyle";
 import Divider from "@material-ui/core/Divider";
+import PlayerAPI from "../../../api/PlayerAPI";
 import clsx from "clsx";
 
 const UserInfo = () => {
   const classes = useStyles();
+const {getPlayerName} = PlayerAPI
+  useEffect(() => {
+    getPlayerName("1");
+  }, []);
   return (
     <div className={classes.ContainerWrapper}>
       <div className={classes.MainContainer}>

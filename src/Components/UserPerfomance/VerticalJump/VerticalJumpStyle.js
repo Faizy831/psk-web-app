@@ -52,4 +52,13 @@ export const useStyles = makeStyles((theme) => ({
       paddingTop: "0rem",
     },
   },
+
+  // VERTICAL JUMP STYLING
+  LinearGauge: {
+    "&:first-child ": {
+      "& svg": {
+        // display: "none",
+      },
+    },
+  },
 }));
