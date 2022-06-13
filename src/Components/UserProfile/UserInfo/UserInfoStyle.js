@@ -258,4 +258,9 @@ export const useStyles = makeStyles((theme) => ({
       margin: "4px 0px 0px 0px",
     },
   },
+  DropDownWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    paddingTop: "2rem",
+  },
 }));
