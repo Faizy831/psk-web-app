@@ -10,7 +10,11 @@ export const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     ["@media (max-width: 872px)"]: {
       backgroundSize: "100% 100%",
-      minHeight: "100vh",
+      minHeight: 700,
+    },
+    ["@media (max-width: 453px)"]: {
+      backgroundSize: "100% 100%",
+      height: "100%",
     },
   },
   LogoWrapper: {
