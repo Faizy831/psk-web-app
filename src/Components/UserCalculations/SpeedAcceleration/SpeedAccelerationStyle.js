@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
   HeadingWrapper: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
   },
   Heading: {
     color: theme.colors.primary.yellow,
@@ -35,7 +35,7 @@ export const useStyles = makeStyles((theme) => ({
       height: 50,
     },
     ["@media (max-width: 450px)"]: {
-      marginLeft: "8rem",
+      marginLeft: "10rem",
     },
   },
   ChartWrapper: {
@@ -57,12 +57,13 @@ export const useStyles = makeStyles((theme) => ({
       height: 300,
     },
     ["@media (max-width: 450px)"]: {
-      width: "85%",
+      width: 250,
       height: 240,
+      display: "none"
     },
   },
   Wrapper: {
-    paddingTop: "15.5rem",
+    paddingTop: "12.3rem",
     ["@media (max-width: 590px)"]: {
       paddingTop: "5rem",
     },
