@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) => ({
   HeadingWrapper: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
   },
   Heading: {
     color: theme.colors.primary.yellow,

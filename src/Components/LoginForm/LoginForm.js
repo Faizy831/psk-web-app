@@ -76,6 +76,7 @@ const LoginForm = () => {
             getOptionLabel={(option) => option.title}
             className={classes.DropDown}
             hiddenLabel="true"
+            position="top"
             renderInput={(params) => (
               <TextField
                 placeholder="NATIONALITY"

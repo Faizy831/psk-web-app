@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
   HeadingWrapper: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
   },
   Heading: {
     color: theme.colors.primary.yellow,
@@ -35,7 +35,7 @@ export const useStyles = makeStyles((theme) => ({
       height: 50,
     },
     ["@media (max-width: 450px)"]: {
-      marginLeft: "0rem",
+      marginLeft: "8rem",
     },
   },
   ChartWrapper: {
