@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import InputBase from "@material-ui/core/InputBase";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -40,8 +40,9 @@ const top100Films = [
   { title: "England" },
 ];
 
-export default function CustomizedInputs() {
+const LoginForm = () => {
   const classes = useStyles();
+
   return (
     <div className={classes.LoginContainer}>
       <form className={classes.root} noValidate>
@@ -92,4 +93,6 @@ export default function CustomizedInputs() {
       </form>
     </div>
   );
-}
+};
+
+export default LoginForm;

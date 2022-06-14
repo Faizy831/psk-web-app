@@ -17,6 +17,7 @@ const getPlayer = async (playerID) => {
  * Query database for player name with specific playerID
  */
 const getPlayerName = async (playerID) => {
+  console.log("WAHT IS HER ",playerID)
   try {
     const player = await DataStore.query(Player, playerID);
     return player.FirstName + " " + player.LastName;
@@ -67,6 +68,7 @@ const getPlayerNationality = async (playerID) => {
 const getPlayerIDcard = async (playerID) => {
   try {
     const player = await DataStore.query(Player, playerID);
+    console.log(player, "what is here");
     return player.IDCard;
   } catch (error) {
     console.log(error);

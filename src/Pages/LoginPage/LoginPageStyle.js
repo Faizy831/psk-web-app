@@ -5,12 +5,12 @@ export const useStyles = makeStyles((theme) => ({
   LoginContainer: {
     backgroundImage: `url(${Bg1})`,
     width: "100%",
-    height: "100vh",
+    minHeight: 800,
     backgroundSize: "100% auto",
     backgroundRepeat: "no-repeat",
     ["@media (max-width: 872px)"]: {
       backgroundSize: "100% 100%",
-      minHeight: "100%",
+      minHeight: "100vh",
     },
   },
   LogoWrapper: {
