@@ -29,7 +29,7 @@ export const useStyles = makeStyles((theme) => ({
       marginLeft: "15rem",
     },
     ["@media (max-width: 450px)"]: {
-      marginLeft: "10rem",
+      marginLeft: "12rem",
     },
   },
   TextWrapper: {
