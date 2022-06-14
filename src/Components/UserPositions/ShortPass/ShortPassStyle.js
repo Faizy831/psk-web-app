@@ -29,7 +29,7 @@ export const useStyles = makeStyles((theme) => ({
       marginLeft: "15rem",
     },
     ["@media (max-width: 450px)"]: {
-      marginLeft: "10rem",
+      marginLeft: "12rem",
     },
   },
   TextWrapper: {
@@ -45,6 +45,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     ["@media (max-width: 450px)"]: {
       padding: "4rem 0rem 0rem 0rem",
+      left: "1rem",
     },
   },
   TouchesText: {
@@ -118,13 +119,13 @@ export const useStyles = makeStyles((theme) => ({
     },
     ["@media (max-width: 450px)"]: {
       width: 50,
-      margin: "0px -10px",
+      margin: "0px 3px",
     },
   },
   ScoreWrapper: {
     paddingTop: "10rem",
     ["@media (max-width: 590px)"]: {
-      paddingTop: "3rem",
+      padding: "3rem 0rem 3rem 0rem ",
     },
   },
 
@@ -154,6 +155,9 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: 30,
     fontWeight: 700,
     margin: 0,
+    ["@media (max-width: 973px)"]: {
+      color: theme.colors.primary.white,
+    },
     ["@media (max-width: 590px)"]: {
       fontSize: 30,
     },

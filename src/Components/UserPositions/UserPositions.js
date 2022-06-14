@@ -7,8 +7,10 @@ const UserPositions = () => {
   const classes = useStyles();
   return (
     <div className={classes.MainContainer}>
-      <ShortPass />
-      <ShotAccuracy />
+      <div className={classes.Wrapper}>
+        <ShortPass />
+        <ShotAccuracy />
+      </div>
     </div>
   );
 };

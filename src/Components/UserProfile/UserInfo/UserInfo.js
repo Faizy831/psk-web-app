@@ -5,14 +5,14 @@ import Vector2 from "../../../assets/Vector2.png";
 import { useStyles } from "./UserInfoStyle";
 import Divider from "@material-ui/core/Divider";
 import PlayerAPI from "../../../api/PlayerAPI";
+import TrainingSessionDropDown from "../../TrainingSessionDropDown/TrainingSessionDropDown";
 import clsx from "clsx";
+import { useLocation } from "react-router-dom";
 
-const UserInfo = () => {
+const UserInfo = ({ profile }) => {
   const classes = useStyles();
-const {getPlayerName} = PlayerAPI
-  useEffect(() => {
-    getPlayerName("1");
-  }, []);
+  const location = useLocation();
+
   return (
     <div className={classes.ContainerWrapper}>
       <div className={classes.MainContainer}>
@@ -58,13 +58,19 @@ const {getPlayerName} = PlayerAPI
       <div className={classes.DiverContainer}>
         <Divider className={classes.Divider} />
       </div>
-      <div className={classes.FinalScoreWrapper}>
-        <div className={classes.FinalTextWrapper}>
-          <img src={Vector2} alt="" className={classes.Vector2} />
-          <h3 className={classes.FinalText}>FINAL SCORE</h3>
+      {location.pathname === "/Dashboard" ? (
+        <div className={classes.FinalScoreWrapper}>
+          <div className={classes.FinalTextWrapper}>
+            <img src={Vector2} alt="" className={classes.Vector2} />
+            <h3 className={classes.FinalText}>FINAL SCORE</h3>
+          </div>
+          <h3 className={classes.ScoreNumber}>77</h3>
         </div>
-        <h3 className={classes.ScoreNumber}>77</h3>
-      </div>
+      ) : (
+        <div className={classes.DropDownWrapper}>
+          <TrainingSessionDropDown />
+        </div>
+      )}
     </div>
   );
 };

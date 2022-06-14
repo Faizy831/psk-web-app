@@ -6,7 +6,6 @@ const initialState = {
   PlayerPosition: "",
   PlayerNationality: "",
   PlayerIDcard: "",
-
 };
 
 const Player = (state = initialState, { payload, type }) => {
