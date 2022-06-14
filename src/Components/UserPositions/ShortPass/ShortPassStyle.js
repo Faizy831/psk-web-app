@@ -45,6 +45,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     ["@media (max-width: 450px)"]: {
       padding: "4rem 0rem 0rem 0rem",
+      left: "1rem",
     },
   },
   TouchesText: {
@@ -118,7 +119,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     ["@media (max-width: 450px)"]: {
       width: 50,
-      margin: "0px -10px",
+      margin: "0px 3px",
     },
   },
   ScoreWrapper: {
