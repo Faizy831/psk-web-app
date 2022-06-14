@@ -243,6 +243,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     ["@media (max-width: 450px)"]: {
       margin: "4px 0px 0px 0px",
+      fontSize: theme.fonts.sizes.fontXLL,
     },
   },
   ScoreNumber: {
@@ -256,6 +257,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     ["@media (max-width: 450px)"]: {
       margin: "4px 0px 0px 0px",
+      fontSize: 40,
     },
   },
   DropDownWrapper: {

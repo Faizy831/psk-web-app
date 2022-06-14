@@ -1,11 +1,16 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
-  MainContainer: {},
+  MainContainer: {
+    
+  },
   HeadingWrapper: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    ["@media (max-width: 590px)"]: {
+      // padding: "1rem 0rem 0rem 0rem"
+    },
   },
   Heading: {
     color: theme.colors.primary.yellow,
@@ -46,6 +51,9 @@ export const useStyles = makeStyles((theme) => ({
     },
     ["@media (max-width: 450px)"]: {
       margin: "0rem 1rem 0rem 0rem",
+    },
+    ["@media (max-width: 375px)"]: {
+      margin: "0rem 2rem 0rem 0rem",
     },
   },
 

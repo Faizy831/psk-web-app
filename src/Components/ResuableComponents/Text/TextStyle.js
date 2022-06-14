@@ -11,6 +11,7 @@ export const useStyles = makeStyles((theme) => ({
     margin: "0px 20px",
     textAlign: "center",
     width: 110,
+   
     ["@media (max-width: 590px)"]: {
       fontSize: theme.fonts.sizes.fontM,
       width: 70,

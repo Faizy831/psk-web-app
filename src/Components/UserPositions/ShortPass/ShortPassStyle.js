@@ -124,7 +124,7 @@ export const useStyles = makeStyles((theme) => ({
   ScoreWrapper: {
     paddingTop: "10rem",
     ["@media (max-width: 590px)"]: {
-      paddingTop: "3rem",
+      padding: "3rem 0rem 3rem 0rem ",
     },
   },
 
@@ -154,6 +154,9 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: 30,
     fontWeight: 700,
     margin: 0,
+    ["@media (max-width: 973px)"]: {
+      color: theme.colors.primary.white,
+    },
     ["@media (max-width: 590px)"]: {
       fontSize: 30,
     },
