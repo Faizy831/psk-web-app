@@ -3,7 +3,11 @@ import { DataStore } from "aws-amplify";
 import PlayerTrainingSessionAPI from "./PlayerTrainingSessionAPI";
 
 /**
- * Query database for player
+ * Query database for player 
+ * 
+ * Arguments: playerID
+ * 
+ * Return: Player with all the attribiutes of a player
  */
 const getPlayer = async (playerID) => {
   try {
@@ -15,6 +19,10 @@ const getPlayer = async (playerID) => {
 
 /**
  * Query database for player name with specific playerID
+ * 
+ * Arguments: playerID
+ * 
+ * Return: Players' First and Last Name
  */
 const getPlayerName = async (playerID) => {
   try {
@@ -27,6 +35,10 @@ const getPlayerName = async (playerID) => {
 
 /**
  * Query database for player age with specific playerID
+ * 
+ * Arguments: playerID
+ * 
+ * Return: Players' Age
  */
 const getPlayerAge = async (playerID) => {
   try {
@@ -39,6 +51,10 @@ const getPlayerAge = async (playerID) => {
 
 /**
  * Query database for player position with specific playerID
+ * 
+ * Arguments: playerID
+ * 
+ * Return: Players' field Position
  */
 const getPlayerPosition = async (playerID) => {
   try {
@@ -51,6 +67,10 @@ const getPlayerPosition = async (playerID) => {
 
 /**
  * Query database for player nationality
+ * 
+ * Arguments: playerID
+ * 
+ * Return: Players' Nationality
  */
 const getPlayerNationality = async (playerID) => {
   try {
@@ -63,6 +83,10 @@ const getPlayerNationality = async (playerID) => {
 
 /**
  * Query database for player IDcard
+ * 
+ * Arguments: playerID
+ * 
+ * Return: Players' IDCard
  */
 const getPlayerIDcard = async (playerID) => {
   try {
@@ -74,7 +98,9 @@ const getPlayerIDcard = async (playerID) => {
 };
 
 /**
- * Query database for players *-*
+ * Query database for all players
+ * 
+ * Return: Array of all players
  */
 const getPlayers = async () => {
   try {
@@ -88,6 +114,10 @@ const getPlayers = async () => {
 
 /**
  * Query database for players in training session
+ * 
+ * Arguments: trainingSessionID
+ * 
+ * Return: Array of players in a Training Session
  */
 const getTrainingSessionPlayers = async (trainingSessionID) => {
   const notIn = (items, itemToAdd) => {
@@ -126,9 +156,13 @@ const getTrainingSessionPlayers = async (trainingSessionID) => {
 };
 
 /**
- * Query database for player with specific IDCard *-*
+ * Query database for player with specific IDCard 
+ * 
+ * Arguments: IDCard, Nationality
+ * 
+ * Return: Array of players with just one player ([player1])
  */
-const getPlayerByIDCard = async (IDCard) => {
+const getPlayerByIDCardAndNationality = async (IDCard, Nationality) => {
   try {
     /*const player = (await DataStore.query(Player)).filter(
             player => (player.IDCard === IDCard && player.Deleted==false)
@@ -138,7 +172,7 @@ const getPlayerByIDCard = async (IDCard) => {
         playerCopy.Nationality = NationalityName;
         return playerCopy*/
     return (await DataStore.query(Player)).filter(
-      (player) => player.IDCard === IDCard && player.Deleted == false
+      (player) => player.IDCard === IDCard &&  player.Nationality === Nationality && player.Deleted == false
     );
   } catch (error) {
     console.log(error);
@@ -147,9 +181,12 @@ const getPlayerByIDCard = async (IDCard) => {
 
 /**
  * Add player to database
+ * 
+ * Arguments: Recieves a player
+ * 
+ * Return: Nothing
  */
 const addPlayer = async (player) => {
-  // putting in the BD the id of the country
   player.Deleted = false;
   try {
     DataStore.save(new Player(player));
@@ -162,7 +199,7 @@ const PlayerAPI = {
   getPlayer: getPlayer,
   getPlayers: getPlayers,
   getTrainingSessionPlayers: getTrainingSessionPlayers,
-  getPlayerByIDCard: getPlayerByIDCard,
+  getPlayerByIDCardAndNationality: getPlayerByIDCardAndNationality,
   addPlayer: addPlayer,
   getPlayerName: getPlayerName,
   getPlayerAge: getPlayerAge,
