@@ -1,21 +1,15 @@
 {
   "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-pskanalyticsapp-staging-95244-authRole",
-      "UnauthRoleArn": "arn:aws:iam::320240588381:role/amplify-pskanalyticsapp-staging-95244-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::320240588381:role/amplify-pskanalyticsapp-staging-95244-authRole",
+      "AuthRoleName": "amplify-pskanalyticsbackend-staging-180542-authRole",
+      "UnauthRoleArn": "arn:aws:iam::320240588381:role/amplify-pskanalyticsbackend-staging-180542-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::320240588381:role/amplify-pskanalyticsbackend-staging-180542-authRole",
       "Region": "eu-west-2",
-      "DeploymentBucketName": "amplify-pskanalyticsapp-staging-95244-deployment",
-      "UnauthRoleName": "amplify-pskanalyticsapp-staging-95244-unauthRole",
-      "StackName": "amplify-pskanalyticsapp-staging-95244",
-      "StackId": "arn:aws:cloudformation:eu-west-2:320240588381:stack/amplify-pskanalyticsapp-staging-95244/43fb7370-d690-11ec-a437-02500ff31854",
-      "AmplifyAppId": "dtt5fl8wqijcx"
-    },
-    "categories": {
-      "auth": {
-        "PSKAnalyticsApp": {},
-        "userPoolGroups": {}
-      }
+      "DeploymentBucketName": "amplify-pskanalyticsbackend-staging-180542-deployment",
+      "UnauthRoleName": "amplify-pskanalyticsbackend-staging-180542-unauthRole",
+      "StackName": "amplify-pskanalyticsbackend-staging-180542",
+      "StackId": "arn:aws:cloudformation:eu-west-2:320240588381:stack/amplify-pskanalyticsbackend-staging-180542/9b1e2710-ec0c-11ec-98b9-027e62d8bc56",
+      "AmplifyAppId": "dcnokn0s35smq"
     }
   }
 }

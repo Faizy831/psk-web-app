@@ -36,6 +36,7 @@ DataStore.start();
 
 const HomePage = () => {
   const classes = useStyles();
+
   return (
     <div className={classes.MainContianer}>
       <UserProfile />

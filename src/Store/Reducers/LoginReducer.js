@@ -1,16 +1,14 @@
 import Actions from "../Types";
 
 const initialState = {
-  PlayerName: "",
-  PlayerAge: "",
-  PlayerPosition: "",
-  PlayerNationality: "",
-  PlayerIDcard: "",
+  IdCard: "",
+  Nationality: "",
+  playerID: "",
 };
 
 const Player = (state = initialState, { payload, type }) => {
   switch (type) {
-    case Actions.PLAYERNAME:
+    case Actions.PLAYERBYIDCARDANDNATIONALITY:
       return {
         ...state,
       };

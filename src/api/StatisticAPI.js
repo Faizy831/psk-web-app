@@ -9,12 +9,13 @@ import PlayerAPI from "./PlayerAPI";
 // MIGUEL A FAZER
 const getTSPlayerStatistic = async (playerID, trainingSessionID) => {
   try {
-    return (await DataStore.query(Statistic)).filter(
-      (statistic) =>
+    return (await DataStore.query(Statistic)).filter((statistic) => {
+      return (
         statistic.playerID === playerID &&
         statistic.trainingsessionID === trainingSessionID &&
         statistic.Deleted === false
-    );
+      );
+    });
   } catch (error) {
     console.log(error);
   }

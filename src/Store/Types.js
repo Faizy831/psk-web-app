@@ -1,5 +1,5 @@
 const Actions = {
-  PLAYER: "PLAYER",
+  PLAYERBYIDCARDANDNATIONALITY: "PLAYERBYIDCARDANDNATIONALITY",
 };
 
 export default Actions;

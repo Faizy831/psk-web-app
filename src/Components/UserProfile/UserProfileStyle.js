@@ -10,11 +10,10 @@ export const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     ["@media (max-width: 1519px)"]: {
       backgroundSize: "100% 100%",
-      minHeight: "100%",
     },
     ["@media (max-width: 872px)"]: {
       backgroundSize: "100% 100%",
-      minHeight: 700,
+      minHeight: 800,
     },
     ["@media (max-width: 590px)"]: {
       backgroundSize: "100% 100%",

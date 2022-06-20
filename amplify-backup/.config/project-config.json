@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "PSKAnalyticsBackend",
+  "projectName": "PSKAnalyticsApp",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
