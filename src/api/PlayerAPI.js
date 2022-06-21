@@ -1,6 +1,7 @@
 import { Player } from "../models";
 import { DataStore } from "aws-amplify";
 import PlayerTrainingSessionAPI from "./PlayerTrainingSessionAPI";
+import { PlayerMedia } from "../models";
 
 /**
  * Query database for player
@@ -91,7 +92,6 @@ const getPlayerNationality = async (playerID) => {
 const getPlayerIDcard = async (playerID) => {
   try {
     const player = await DataStore.query(Player, playerID);
-    console.log(player, "what is here");
     return player.IDCard;
   } catch (error) {
     console.log(error);
@@ -200,6 +200,20 @@ const addPlayer = async (player) => {
   }
 };
 
+/**
+ * Query database for player's photo in a TS
+ */
+ const getPlayerMedia = async (playerID, tsID) => {
+  try {
+      return (await DataStore.query(PlayerMedia)).filter(
+          media => media.playerID === playerID && media.trainingsessionID === tsID && media.Deleted === false
+      );
+  } catch (error) {
+      console.log(error);
+  }
+}
+
+
 const PlayerAPI = {
   getPlayer: getPlayer,
   getPlayers: getPlayers,
@@ -211,6 +225,7 @@ const PlayerAPI = {
   getPlayerNationality: getPlayerNationality,
   getPlayerIDcard: getPlayerIDcard,
   getPlayerPosition: getPlayerPosition,
+  getPlayerMedia: getPlayerMedia,
 };
 
 export default PlayerAPI;
