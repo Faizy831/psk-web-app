@@ -203,16 +203,19 @@ const addPlayer = async (player) => {
 /**
  * Query database for player's photo in a TS
  */
- const getPlayerMedia = async (playerID, tsID) => {
+const getPlayerMedia = async (playerID, tsID) => {
   try {
-      return (await DataStore.query(PlayerMedia)).filter(
-          media => media.playerID === playerID && media.trainingsessionID === tsID && media.Deleted === false
+    return (await DataStore.query(PlayerMedia)).filter((media) => {
+      return (
+        media.playerID === playerID &&
+        media.trainingsessionID === tsID &&
+        media.Deleted === false
       );
+    });
   } catch (error) {
-      console.log(error);
+    console.log(error);
   }
-}
-
+};
 
 const PlayerAPI = {
   getPlayer: getPlayer,

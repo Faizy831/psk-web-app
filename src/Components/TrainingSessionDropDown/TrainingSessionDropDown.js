@@ -4,55 +4,58 @@ import { useStyles } from "./TrainingSessionDropDownStyle";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Button from "../LoginForm/Btn";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import PlayerTrainingSessionAPI from "../../api/PlayerTrainingSessionAPI";
 import TraningSessionAPI from "../../api/TraningSessionAPI";
-import StatisticAPI from "../../api/StatisticAPI";
-// import PlayerTrainingSessionAPI from "../../api/PlayerTrainingSessionAPI";
+import { useNavigate } from "react-router-dom";
 
-export default function CustomizedInputs() {
+export default function CustomizedInputs({
+  trainingSessionID,
+  setTrainingSessionID,
+  setTsID,
+}) {
   const classes = useStyles();
 
   const location = useLocation();
 
+  const [playerID, SetPlayerID] = useState("");
+
+  const Navigate = useNavigate();
+
   useEffect(() => {
     SetPlayerID(location.state.id);
-    TraningSessions();
-  }, []);
+  }, [location.state.id]);
 
-  const [getTrainingSessions, SetGetTrainingSessions] = useState([]);
-  const [playerID, SetPlayerID] = useState("");
-  const [trainingSessionID, setTrainingSessionID] = useState("");
-  // const [tsID, setTsID] = useState("");
+  const [SingleTrainingSession, SetSingleTrainingSession] = useState([]);
+  const [DropDownValue, SetDropDownValue] = useState("");
 
-  const PlayerStatistic = async () => {
-    const PlayerStatisticData = await StatisticAPI.getTSPlayerStatistic(
-      playerID,
-      trainingSessionID
-    );
-    // console.log(PlayerStatisticData, "PlayerStatisticData");
+  const SingleTrainingSessionOfPlayer = async () => {
+    const SingleTrainingSessionOfPlayer =
+      await TraningSessionAPI.getTrainingSession(trainingSessionID);
+    console.log(SingleTrainingSessionOfPlayer, "SingleTrainingSessionOfPlayer");
+    const Array = [];
+    Array.push({ title: SingleTrainingSessionOfPlayer?.Type });
+    SetSingleTrainingSession(Array);
   };
 
-  // const PlayerTrainingSession = async () => {
-  //   const PlayerTrainingSessionData =
-  //     await PlayerTrainingSessionAPI.getPlayerTrainingSessionFromTS(tsID);
-  //   PlayerTrainingSessionData.map((value) => {
-  //     SetPlayerID(value.playerID);
-  //     setTrainingSessionID(value.trainingsessionID);
-  //   });
-  // };
-
-  const TraningSessions = async () => {
-    const TraningSessionsData = await TraningSessionAPI.getTrainingSessions();
-    SetGetTrainingSessions(TraningSessionsData);
-    TraningSessionsData.map((type) => {
-      top100Films.push({ title: type.Type, id: type.id });
+  const TraningSessionsOfPlayer = async () => {
+    const TraningSessionsOfPlayer =
+      await PlayerTrainingSessionAPI.getPlayerTrainingSessionFromPlayer(
+        playerID
+      );
+    TraningSessionsOfPlayer.map((value) => {
+      setTrainingSessionID(value.trainingsessionID);
     });
   };
 
+  const Contiune = () => {
+    Navigate("/Dashboard", { state: { id: playerID } });
+  };
+
   useEffect(() => {
-    PlayerStatistic();
-    // PlayerTrainingSession();
-  }, [playerID, trainingSessionID]);
+    SingleTrainingSessionOfPlayer();
+    TraningSessionsOfPlayer();
+  }, [trainingSessionID, playerID]);
 
   return (
     <div className={classes.LoginContainer}>
@@ -67,13 +70,13 @@ export default function CustomizedInputs() {
           </InputLabel>
           <Autocomplete
             id="combo-box-demo"
-            options={top100Films}
+            options={SingleTrainingSession}
             getOptionLabel={(option) => option.title || ""}
             className={classes.DropDown}
             hiddenLabel="true"
-            value={top100Films}
+            value={SingleTrainingSession[DropDownValue]}
             onChange={(event, value) => {
-              setTrainingSessionID(value.id);
+              SetDropDownValue(value.title);
             }}
             renderInput={(params) => (
               <TextField
@@ -85,13 +88,9 @@ export default function CustomizedInputs() {
           />
         </div>
         <div className={classes.ButtonWrapper}>
-          <Link to="/Dashboard" className={classes.Link}>
-            <Button title="CONTINUE" />
-          </Link>
+          <Button title="CONTINUE" onClick={Contiune} />
         </div>
       </div>
     </div>
   );
 }
-
-const top100Films = [];

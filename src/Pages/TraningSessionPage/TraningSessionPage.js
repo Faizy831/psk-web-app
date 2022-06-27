@@ -4,7 +4,6 @@ import { useStyles } from "./TraningSessionPageStyle";
 
 const TraningSessionPage = () => {
   const classes = useStyles;
-
   return (
     <div className={classes.TraningSessionContainer}>
       <UserProfile />

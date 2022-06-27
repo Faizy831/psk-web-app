@@ -34,6 +34,8 @@ const configureAmplify = () => {
 configureAmplify();
 DataStore.start();
 
+DataStore.clear();
+
 const HomePage = () => {
   const classes = useStyles();
 

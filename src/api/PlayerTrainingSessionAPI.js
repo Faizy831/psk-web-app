@@ -35,9 +35,9 @@ const getPlayerTrainingSessionByID = async (playertsID) => {
  */
 const getPlayerTrainingSessionFromPlayer = async (playerID) => {
   try {
-    return (await DataStore.query(PlayerTrainingSession)).filter(
-      (playerTS) => playerTS.playerID === playerID && playerTS.Deleted == false
-    );
+    return (await DataStore.query(PlayerTrainingSession)).filter((playerTS) => {
+      return playerTS.playerID === playerID && playerTS.Deleted == false;
+    });
   } catch (error) {
     console.log(error);
   }

@@ -1,17 +1,58 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ProfilePic from "../../../assets/ProfilePic.png";
 import Vector from "../../../assets/Vector.png";
 import Vector2 from "../../../assets/Vector2.png";
 import { useStyles } from "./UserInfoStyle";
 import Divider from "@material-ui/core/Divider";
-import PlayerAPI from "../../../api/PlayerAPI";
 import TrainingSessionDropDown from "../../TrainingSessionDropDown/TrainingSessionDropDown";
 import clsx from "clsx";
 import { useLocation } from "react-router-dom";
+import PlayerAPI from "../../../api/PlayerAPI";
+import StatisticAPI from "../../../api/StatisticAPI";
+import moment from "moment";
 
 const UserInfo = ({ profile }) => {
   const classes = useStyles();
   const location = useLocation();
+
+  const [Name, setName] = useState("");
+  const [trainingSessionID, setTrainingSessionID] = useState("");
+  const [Age, SetAge] = useState("");
+
+  const PlayerName = async () => {
+    const PlayerName = await PlayerAPI.getPlayerName(location.state.id);
+    setName(PlayerName);
+  };
+
+  const PlayeAge = async () => {
+    const playerAge = await PlayerAPI.getPlayerAge(location.state.id);
+    let Age = moment().diff(playerAge, "years", false);
+    SetAge(Age);
+  };
+
+  const PlayerImage = async () => {
+    const PlayerImage = await PlayerAPI.getPlayerMedia(
+      location.state.id,
+      trainingSessionID
+    );
+    console.log(PlayerImage, "PlayerImage");
+  };
+
+  const PlayerHeightWeight = async () => {
+    const PlayerHeightWeight =
+      await StatisticAPI.getTSPlayerStatisticBiometricData(
+        location.state.id,
+        trainingSessionID
+      );
+    console.log(PlayerHeightWeight, "PlayerHeightWeight");
+  };
+
+  useEffect(() => {
+    PlayerName();
+    PlayerHeightWeight();
+    PlayeAge();
+    PlayerImage();
+  }, [location.state.id, trainingSessionID]);
 
   return (
     <div className={classes.ContainerWrapper}>
@@ -19,7 +60,7 @@ const UserInfo = ({ profile }) => {
         <div className={classes.UserInfoWrapper}>
           <div className={classes.AgeWrapper}>
             <h3 className={classes.AgeText}>Age</h3>
-            <h3 className={classes.AgeNumber}>12</h3>
+            <h3 className={classes.AgeNumber}>{Age}</h3>
           </div>
           <div>
             <h3 className={classes.info}>
@@ -44,8 +85,8 @@ const UserInfo = ({ profile }) => {
           </div>
           <div className={classes.TextWrapper}>
             <div className={classes.ResponsiveWrapper}>
-              <h3 className={classes.FranciscoText}>Francisco </h3>
-              <h3 className={classes.VinagreText}>Vinagre</h3>
+              <h3 className={classes.FranciscoText}>{Name}</h3>
+              {/* <h3 className={classes.VinagreText}>Vinagre</h3> */}
             </div>
           </div>
         </div>
@@ -68,7 +109,10 @@ const UserInfo = ({ profile }) => {
         </div>
       ) : (
         <div className={classes.DropDownWrapper}>
-          <TrainingSessionDropDown />
+          <TrainingSessionDropDown
+            trainingSessionID={trainingSessionID}
+            setTrainingSessionID={setTrainingSessionID}
+          />
         </div>
       )}
     </div>

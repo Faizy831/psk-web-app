@@ -233,14 +233,16 @@ const getTSPlayerStatisticBiometricData = async (
   trainingSessionID
 ) => {
   let exercise = await ExerciseAPI.getExerciseByName("BiometricData");
+
   try {
-    return (await DataStore.query(Statistic)).filter(
-      (statistic) =>
+    return (await DataStore.query(Statistic)).filter((statistic) => {
+      return (
         statistic.playerID === playerID &&
         statistic.trainingsessionID === trainingSessionID &&
         statistic.exerciseID === exercise[0].id &&
         statistic.Deleted === false
-    );
+      );
+    });
   } catch (error) {
     console.log(error);
   }
