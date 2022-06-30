@@ -2,6 +2,7 @@ import { Statistic } from "../models";
 import { DataStore } from "aws-amplify";
 import ExerciseAPI from "./ExerciseAPI";
 import PlayerAPI from "./PlayerAPI";
+import DataAPI from "./DataAPI";
 
 /**
  * Query a Player Statistics of specific TS
@@ -228,12 +229,8 @@ const getTSPlayerStatisticPower = async (playerID, trainingSessionID) => {
 /**
  * Query a Player Statistics of specific TS of BiometricData
  */
-const getTSPlayerStatisticBiometricData = async (
-  playerID,
-  trainingSessionID
-) => {
+const getTSPlayerStatisticBiometricData = async (playerID,trainingSessionID) => {
   let exercise = await ExerciseAPI.getExerciseByName("BiometricData");
-
   try {
     return (await DataStore.query(Statistic)).filter((statistic) => {
       return (
@@ -323,6 +320,7 @@ const getTSPlayerStatisticSpeed = async (playerID, trainingSessionID) => {
   }
 };
 
+
 /**
  * Query a Player Statistics of specific TS of Speed exercise
  */
@@ -333,76 +331,66 @@ const getTSPlayerFinalScore = async (playerID, trainingSessionID) => {
   //If player is GK
   if (position === "GK") {
     //Speed, Acceleration, LongPass, ShortPass, Agility, LongPassHand, GoalKeeper
-    array_aux = [
-      parseFloat(await getTSPlayerStatisticSpeed(playerID, trainingSessionID)),
-      parseFloat(
-        await getTSPlayerStatisticAcceleration(playerID, trainingSessionID)
-      ),
-      parseFloat(
-        await getTSPlayerStatisticLongPass(playerID, trainingSessionID)
-      ),
-      parseFloat(
-        await getTSPlayerStatisticShortPass(playerID, trainingSessionID)
-      ),
-      parseFloat(
-        await getTSPlayerStatisticAgility(playerID, trainingSessionID)
-      ),
-      parseFloat(
-        await getTSPlayerStatisticLongPassHand(playerID, trainingSessionID)
-      ),
-      parseFloat(
-        await getTSPlayerStatisticGoalKeeper(playerID, trainingSessionID)
-      ),
+    let Speed = await DataAPI.getPlayerTrainingSessionSpeedData(playerID, trainingSessionID)
+    let Acceleration = await DataAPI.getPlayerTrainingSessionAccelerationData(playerID, trainingSessionID)
+    let LongPass = await DataAPI.getPlayerTrainingSessionLongPassData(playerID, trainingSessionID)
+    let ShortPass = await DataAPI.getPlayerTrainingSessionShortPassData(playerID, trainingSessionID)
+    let Agility = await DataAPI.getPlayerTrainingSessionAgilityData(playerID, trainingSessionID)
+    let LongPassHand = await DataAPI.getPlayerTrainingSessionLongPassHandData(playerID, trainingSessionID)
+    let GoalKeeper = await DataAPI.getPlayerTrainingSessionGoalKeeperData(playerID, trainingSessionID)
+    if(Speed.length === 0) {Speed[0]={Data: [0]}}
+    if(Acceleration.length === 0) {Acceleration[0]={Data: [0]}}
+    if(LongPass.length === 0) {LongPass[0]={Data: [0]}}
+    if(ShortPass.length === 0) {ShortPass[0]={Data: [0]}}
+    if(Agility.length === 0) {Agility[0]={Data: [0]}}
+    if(LongPassHand.length === 0) {LongPassHand[0]={Data: [0]}}
+    if(GoalKeeper.length === 0) {GoalKeeper[0]={Data: [0]}}
+    array_aux = [Speed[0].Data, Acceleration[0].Data, LongPass[0].Data, ShortPass[0].Data, Agility[0].Data, LongPassHand[0].Data, GoalKeeper[0].Data
     ];
     let final_score =
-      (0.12 * (array_aux[0] + array_aux[1])) / 2 +
-      0.13 * array_aux[2] +
-      0.12 * array_aux[3] +
-      0.2 * array_aux[4] +
-      0.13 * array_aux[5] +
-      0.3 * array_aux[6];
+      (0.12 * (parseFloat(array_aux[0]) + parseFloat(array_aux[1]))) / 2 +
+      0.13 * parseFloat(array_aux[2]) +
+      0.12 * parseFloat(array_aux[3]) +
+      0.2 * parseFloat(array_aux[4]) +
+      0.13 * parseFloat(array_aux[5]) +
+      0.3 * parseFloat(array_aux[6]);
     final_score_array = final_score;
   } else {
-    array_aux = [
-      parseFloat(
-        await getTSPlayerStatisticAgility(playerID, trainingSessionID)
-      ),
-      parseFloat(
-        await getTSPlayerStatisticAcceleration(playerID, trainingSessionID)
-      ),
-      parseFloat(
-        await getTSPlayerStatisticShooting(playerID, trainingSessionID)
-      ),
-      parseFloat(
-        await getTSPlayerStatisticDribble(playerID, trainingSessionID)
-      ),
-      parseFloat(await getTSPlayerStatisticSpeed(playerID, trainingSessionID)),
-      parseFloat(
-        await getTSPlayerStatisticLongPass(playerID, trainingSessionID)
-      ),
-      parseFloat(
-        await getTSPlayerStatisticStamina(playerID, trainingSessionID)
-      ),
-      parseFloat(
-        await getTSPlayerStatisticShortPass(playerID, trainingSessionID)
-      ),
+    let Agility = await DataAPI.getPlayerTrainingSessionAgilityData(playerID, trainingSessionID)
+    let Acceleration = await DataAPI.getPlayerTrainingSessionAccelerationData(playerID, trainingSessionID)
+    let Shooting = await DataAPI.getPlayerTrainingSessionShootingData(playerID, trainingSessionID)
+    let Dribble = await DataAPI.getPlayerTrainingSessionDribbleData(playerID, trainingSessionID)
+    let Speed = await DataAPI.getPlayerTrainingSessionSpeedData(playerID, trainingSessionID)
+    let LongPass= await DataAPI.getPlayerTrainingSessionLongPassData(playerID, trainingSessionID)
+    let Stamina= await DataAPI.getPlayerTrainingSessionStaminaData(playerID, trainingSessionID)
+    let ShortPass= await DataAPI.getPlayerTrainingSessionShortPassData(playerID, trainingSessionID)
+    if(Agility.length === 0) {Agility[0]={Data: [0]}}
+    if(Acceleration.length === 0) {Acceleration[0]={Data: [0]}}
+    if(Shooting.length === 0) {Shooting[0]={Data: [0]}}
+    if(Dribble.length === 0) {Dribble[0]={Data: [0]}}
+    if(Speed.length === 0) {Speed[0]={Data: [0]}}
+    if(LongPass.length === 0) {LongPass[0]={Data: [0]}}
+    if(Stamina.length === 0) {Stamina[0]={Data: [0]}}
+    if(ShortPass.length === 0) {ShortPass[0]={Data: [0]}}
+    array_aux = [Agility[0].Data, Acceleration[0].Data, Shooting[0].Data, Dribble[0].Data, Speed[0].Data, LongPass[0].Data, Stamina[0].Data, ShortPass[0].Data
     ];
-    //decrescente
+    //decrescent
     let array_sorted = array_aux.sort(function (a, b) {
       return b - a;
     });
     let sum = 0;
     for (let m = 0; m < array_aux.length; m++) {
-      sum = sum + array_aux[m];
+      sum = sum + parseFloat(array_aux[m]);
     }
     let mean = sum / array_aux.length;
-    let final_score =
-      array_sorted[0] +
-      (array_sorted[0] + array_sorted[1] + array_sorted[2]) / 3 +
+    let final_score =(
+      parseFloat(array_sorted[0]) +
+      (parseFloat(array_sorted[0]) + parseFloat(array_sorted[1]) + parseFloat(array_sorted[2])) / 3 +
       mean +
-      (array_sorted[2] + array_sorted[3] + array_sorted[4] + array_sorted[5]) /
-        4;
-    final_score_array = final_score;
+      (parseFloat(array_sorted[2]) + parseFloat(array_sorted[3]) + parseFloat(array_sorted[4]) + parseFloat(array_sorted[5])) /
+        4)/4;
+    let final_score_string= final_score.toString()
+    final_score_array = final_score_string[0]+final_score_string[1]
   }
   return final_score_array;
 };
