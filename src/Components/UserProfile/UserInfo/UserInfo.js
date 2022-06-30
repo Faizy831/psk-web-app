@@ -21,6 +21,7 @@ const UserInfo = () => {
   const [firstName, setFirstName] = useState("");
   const [secondName, setSecondName] = useState("");
   const [image, SetImage] = useState("");
+  const [finalScore, SetFinalScore] = useState("");
 
   const PLayerHeight = Math.round(height);
   const PLayerWeight = Math.round(weight);
@@ -70,7 +71,7 @@ const UserInfo = () => {
       location.state.id,
       location.state.trainingSessionID
     );
-    console.log(PlayerFinalScore, "PlayerFinalScore");
+    SetFinalScore(PlayerFinalScore);
   };
 
   useEffect(() => {
@@ -132,7 +133,7 @@ const UserInfo = () => {
             <img src={Vector2} alt="" className={classes.Vector2} />
             <h3 className={classes.FinalText}>FINAL SCORE</h3>
           </div>
-          <h3 className={classes.ScoreNumber}>77</h3>
+          <h3 className={classes.ScoreNumber}>{finalScore}</h3>
         </div>
       ) : (
         <div className={classes.DropDownWrapper}>
