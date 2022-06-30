@@ -6,6 +6,7 @@ import { useStyles } from "./UserCalculationsStyle";
 
 const UserCalculations = () => {
   const classes = useStyles();
+
   return (
     <div className={classes.MainContainer}>
       <div className={classes.ComWrapper}>

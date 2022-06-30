@@ -69,10 +69,13 @@ export const useStyles = makeStyles((theme) => ({
       margin: "1rem 0rem 0rem 0.6rem",
     },
   },
+
   Avatar: {
+    border: "2px solid #6CC5DC",
+    borderRadius: 100,
     width: 174,
     height: 178,
-    objectFit: "cover",
+    objectFit: "contain",
   },
   ResponsiveWrapper: {
     ["@media (max-width: 872px)"]: {
@@ -130,10 +133,12 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     margin: 0,
     ["@media (max-width: 872px)"]: {
-      marginRight: 12,
+      marginRight: 78,
+      width: 0,
     },
     ["@media (max-width: 590px)"]: {
       fontSize: 40,
+      width: 0,
     },
   },
   VinagreText: {

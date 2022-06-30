@@ -4,6 +4,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import ConfigureStore from "./Store/Store";
 import { Provider } from "react-redux";
 import AppRoutes from "./Routes/Routes";
+
 const { store } = ConfigureStore();
 
 const App = () => {

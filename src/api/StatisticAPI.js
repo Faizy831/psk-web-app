@@ -329,20 +329,30 @@ const getTSPlayerStatisticSpeed = async (playerID, trainingSessionID) => {
 const getTSPlayerFinalScore = async (playerID, trainingSessionID) => {
   let position = await PlayerAPI.getPlayerPosition(playerID);
   let final_score_array;
-
-  const array_aux = [];
-
+  let array_aux = [];
   //If player is GK
   if (position === "GK") {
     //Speed, Acceleration, LongPass, ShortPass, Agility, LongPassHand, GoalKeeper
     array_aux = [
-      await getTSPlayerStatisticSpeed(playerID, trainingSessionID),
-      await getTSPlayerStatisticAcceleration(playerID, trainingSessionID),
-      await getTSPlayerStatisticLongPass(playerID, trainingSessionID),
-      await getTSPlayerStatisticShortPass(playerID, trainingSessionID),
-      await getTSPlayerStatisticAgility(playerID, trainingSessionID),
-      await getTSPlayerStatisticLongPassHand(playerID, trainingSessionID),
-      await getTSPlayerStatisticGoalKeeper(playerID, trainingSessionID),
+      parseFloat(await getTSPlayerStatisticSpeed(playerID, trainingSessionID)),
+      parseFloat(
+        await getTSPlayerStatisticAcceleration(playerID, trainingSessionID)
+      ),
+      parseFloat(
+        await getTSPlayerStatisticLongPass(playerID, trainingSessionID)
+      ),
+      parseFloat(
+        await getTSPlayerStatisticShortPass(playerID, trainingSessionID)
+      ),
+      parseFloat(
+        await getTSPlayerStatisticAgility(playerID, trainingSessionID)
+      ),
+      parseFloat(
+        await getTSPlayerStatisticLongPassHand(playerID, trainingSessionID)
+      ),
+      parseFloat(
+        await getTSPlayerStatisticGoalKeeper(playerID, trainingSessionID)
+      ),
     ];
     let final_score =
       (0.12 * (array_aux[0] + array_aux[1])) / 2 +
@@ -351,40 +361,49 @@ const getTSPlayerFinalScore = async (playerID, trainingSessionID) => {
       0.2 * array_aux[4] +
       0.13 * array_aux[5] +
       0.3 * array_aux[6];
-
     final_score_array = final_score;
   } else {
     array_aux = [
-      await getTSPlayerStatisticAgility(playerID, trainingSessionID),
-      await getTSPlayerStatisticAcceleration(playerID, trainingSessionID),
-      await getTSPlayerStatisticShooting(playerID, trainingSessionID),
-      await getTSPlayerStatisticDribble(playerID, trainingSessionID),
-      await getTSPlayerStatisticSpeed(playerID, trainingSessionID),
-      await getTSPlayerStatisticLongPass(playerID, trainingSessionID),
-      await getTSPlayerStatisticStamina(playerID, trainingSessionID),
-      await getTSPlayerStatisticShortPass(playerID, trainingSessionID),
+      parseFloat(
+        await getTSPlayerStatisticAgility(playerID, trainingSessionID)
+      ),
+      parseFloat(
+        await getTSPlayerStatisticAcceleration(playerID, trainingSessionID)
+      ),
+      parseFloat(
+        await getTSPlayerStatisticShooting(playerID, trainingSessionID)
+      ),
+      parseFloat(
+        await getTSPlayerStatisticDribble(playerID, trainingSessionID)
+      ),
+      parseFloat(await getTSPlayerStatisticSpeed(playerID, trainingSessionID)),
+      parseFloat(
+        await getTSPlayerStatisticLongPass(playerID, trainingSessionID)
+      ),
+      parseFloat(
+        await getTSPlayerStatisticStamina(playerID, trainingSessionID)
+      ),
+      parseFloat(
+        await getTSPlayerStatisticShortPass(playerID, trainingSessionID)
+      ),
     ];
-
     //decrescente
     let array_sorted = array_aux.sort(function (a, b) {
       return b - a;
     });
-    const sum = sum;
+    let sum = 0;
     for (let m = 0; m < array_aux.length; m++) {
       sum = sum + array_aux[m];
     }
     let mean = sum / array_aux.length;
-
     let final_score =
       array_sorted[0] +
       (array_sorted[0] + array_sorted[1] + array_sorted[2]) / 3 +
       mean +
       (array_sorted[2] + array_sorted[3] + array_sorted[4] + array_sorted[5]) /
         4;
-
     final_score_array = final_score;
   }
-
   return final_score_array;
 };
 

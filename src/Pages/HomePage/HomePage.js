@@ -7,16 +7,8 @@ import UserLongPassGkReaction from "../../Components/UserLongPassGkReaction/User
 import UserAgilityAndDribble from "../../Components/UserAgility&Dribble/UserAgility&Dribble";
 import Footer from "../../Components/Footer/Footer";
 import { useStyles } from "./HomeStyle";
-
-import DataAPI from "../../api/DataAPI";
-import ExerciseAPI from "../../api/ExerciseAPI";
-import PlayerAPI from "../../api/PlayerAPI";
-import PlayerTrainingSessionAPI from "../../api/PlayerTrainingSessionAPI";
-import StatisticAPI from "../../api/StatisticAPI";
-
 import { Amplify, DataStore } from "aws-amplify";
 import awsconfig from "../../aws-exports";
-import { useAuthenticator, withAuthenticator } from "@aws-amplify/ui-react";
 
 /**
  * Initial configuration of AWS Amplify
@@ -25,7 +17,7 @@ const configureAmplify = () => {
   try {
     Amplify.configure(awsconfig);
     console.log("Amplify configured!");
-    //DataStore.clear();
+    // DataStore.clear();
   } catch (error) {
     console.log("Error configuring Amplify\n" + error);
   }
@@ -33,8 +25,6 @@ const configureAmplify = () => {
 
 configureAmplify();
 DataStore.start();
-
-DataStore.clear();
 
 const HomePage = () => {
   const classes = useStyles();

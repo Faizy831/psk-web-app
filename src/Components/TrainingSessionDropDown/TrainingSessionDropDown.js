@@ -32,7 +32,7 @@ export default function CustomizedInputs({
   const SingleTrainingSessionOfPlayer = async () => {
     const SingleTrainingSessionOfPlayer =
       await TraningSessionAPI.getTrainingSession(trainingSessionID);
-    console.log(SingleTrainingSessionOfPlayer, "SingleTrainingSessionOfPlayer");
+
     const Array = [];
     Array.push({ title: SingleTrainingSessionOfPlayer?.Type });
     SetSingleTrainingSession(Array);
@@ -49,7 +49,9 @@ export default function CustomizedInputs({
   };
 
   const Contiune = () => {
-    Navigate("/Dashboard", { state: { id: playerID } });
+    Navigate("/Dashboard", {
+      state: { id: playerID, trainingSessionID: trainingSessionID },
+    });
   };
 
   useEffect(() => {

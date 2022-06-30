@@ -4,22 +4,22 @@ import { schema } from './schema';
 
 
 
-const { Player, PlayerTrainingSession, ClubPlayer, Score, PlayerMedia, Statistic, CoachesTrainingSession, TrainingSession, ClubTrainingSession, Training, Kit, Club, ClubCoach, Exercise, Coach } = initSchema(schema);
+const { Coach, CoachesTrainingSession, ClubCoach, Training, Statistic, Exercise, Score, Club, ClubPlayer, ClubTrainingSession, Kit, PlayerTrainingSession, TrainingSession, PlayerMedia, Player } = initSchema(schema);
 
 export {
-  Player,
-  PlayerTrainingSession,
-  ClubPlayer,
-  Score,
-  PlayerMedia,
-  Statistic,
+  Coach,
   CoachesTrainingSession,
-  TrainingSession,
-  ClubTrainingSession,
-  Training,
-  Kit,
-  Club,
   ClubCoach,
+  Training,
+  Statistic,
   Exercise,
-  Coach
+  Score,
+  Club,
+  ClubPlayer,
+  ClubTrainingSession,
+  Kit,
+  PlayerTrainingSession,
+  TrainingSession,
+  PlayerMedia,
+  Player
 };

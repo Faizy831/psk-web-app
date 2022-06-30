@@ -1,7 +1,7 @@
 import React from "react";
 import VerticalJumpLogo from "../../../assets/VerticalJump.png";
 // import VerticalJumpChart from "./VerticalJumpChart";
-import verticaljump from "../../../assets/verticaljump.png";
+import verticaljumpChart from "../../../assets/verticaljumpChart.png";
 import ScoreBoard from "../../ResuableComponents/ScoreBoard/ScoreBoard";
 import { useStyles } from "./VerticalJumpStyle";
 
@@ -19,7 +19,11 @@ const VerticalJump = () => {
       </div>
       <div>
         {/* <VerticalJumpChart /> */}
-        <img src={verticaljump} alt="" className={classes.VerticaljumpGraphImg} />
+        <img
+          src={verticaljumpChart}
+          alt=""
+          className={classes.VerticaljumpGraphImg}
+        />
       </div>
       <div className={classes.ScoreBoardWrapper}>
         <ScoreBoard />
