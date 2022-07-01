@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import GaugeChart from "react-gauge-chart";
 import Left from "../../../assets/Left.png";
 import Right from "../../../assets/Right.png";
 import SpeedChartText from "./SpeedChartText";
 import { useStyles } from "./SpeedAccelerationStyle";
+import { useLocation } from "react-router-dom";
+import StatisticAPI from "../../../api/StatisticAPI";
 
 const SpeedChart = () => {
   const classes = useStyles();
+
+  const location = useLocation();
+
+  const PlayerSpeed = async () => {
+    const PlayerSpeed = await StatisticAPI.getTSPlayerStatisticSpeed(
+      location.state.id,
+      location.state.trainingSessionID
+    );
+    // console.log(PlayerSpeed, "PlayerSpeed");
+  };
+
+  const PLayerAcceleration = async () => {
+    const PLayerAcceleration =
+      await StatisticAPI.getTSPlayerStatisticAcceleration(
+        location.state.id,
+        location.state.trainingSessionID
+      );
+    // console.log(PLayerAcceleration, "PLayerAcceleration");
+  };
+
+  useEffect(() => {
+    PlayerSpeed();
+    PLayerAcceleration();
+  }, [location.state.id, location.state.trainingSessionID]);
 
   return (
     <>
