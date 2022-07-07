@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useStyles } from "./StaminaStyle";
 import AverageRounds from "./AverageRounds";
 import AverageIcon from "../../../assets/AverageIcon.png";
+import { useLocation } from "react-router-dom";
+import StatisticAPI from "../../../api/StatisticAPI";
 
 const Average = () => {
   const classes = useStyles();
+  const location = useLocation();
+
+  const playerStamina = async () => {
+    const playerStamina = await StatisticAPI.getTSPlayerStatisticStamina(
+      location.state.id,
+      location.state.trainingSessionID
+    );
+  };
+
+  useEffect(() => {
+    playerStamina();
+  }, [location.state.id, location.state.trainingSessionID]);
+
   return (
     <div className={classes.averageWrpper}>
       <div className={classes.averageConatiner}>

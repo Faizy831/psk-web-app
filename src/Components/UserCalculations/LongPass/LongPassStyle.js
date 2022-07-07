@@ -42,6 +42,11 @@ export const useStyles = makeStyles((theme) => ({
   //LINECHART STYLING
   LineChartWrapper: {
     marginTop: 30,
+    height: 287,
+    overflowY: "scroll",
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
   },
   LineChartContianer: {
     paddingTop: "1rem",

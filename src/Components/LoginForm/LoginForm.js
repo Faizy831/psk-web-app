@@ -78,7 +78,7 @@ const LoginForm = () => {
             <BootstrapInput
               placeholder="ID CARD"
               id="bootstrap-input"
-              type="number"
+              // type="number"
               value={idCard}
               onChange={(e) => SetIdCard(e.target.value)}
             />

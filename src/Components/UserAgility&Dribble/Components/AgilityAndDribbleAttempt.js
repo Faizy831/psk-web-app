@@ -7,6 +7,7 @@ const AgilityAndDribbleAttempt = ({
   Attempt,
   className,
   divider,
+  value,
 }) => {
   const classes = useStyle();
   return (
@@ -16,7 +17,7 @@ const AgilityAndDribbleAttempt = ({
           {firstTitle} <br /> {Attempt}
         </h3>
         <img src={image} className={[classes.large, className].join(" ")} />
-        <h3 className={classes.Attemptnbr}>31</h3>
+        <h3 className={classes.Attemptnbr}>{value}</h3>
       </div>
       {divider && <div className={classes.divider}></div>}
     </div>

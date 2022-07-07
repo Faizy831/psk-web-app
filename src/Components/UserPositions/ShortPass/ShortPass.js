@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Football from "../../../assets/Football.png";
 import Text from "../../ResuableComponents/Text/Text";
 import Attempt from "./Attempt";
 import ScoreBoard from "../../ResuableComponents/ScoreBoard/ScoreBoard";
 import { useStyles } from "./ShortPassStyle";
+import { useLocation } from "react-router-dom";
+import StatisticAPI from "../../../api/StatisticAPI";
 
 const ShortPass = () => {
   const classes = useStyles();
+
+  const location = useLocation();
+
+  const ShortPass = async () => {
+    const ShortPass = await StatisticAPI.getTSPlayerStatisticShortPass(
+      location.state.id,
+      location.state.trainingSessionID
+    );
+  };
+
+  useEffect(() => {
+    ShortPass();
+  }, [location.state.id, location.state.trainingSessionID]);
+
   return (
     <div className={classes.MainContainer}>
       <div className={classes.HeadingWrapper}>

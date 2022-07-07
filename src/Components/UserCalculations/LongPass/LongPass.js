@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import longpassChart from "../../../assets/longpassChart.png";
 import LineChart from "./LineChart";
 import ScoreBoard from "../../ResuableComponents/ScoreBoard/ScoreBoard";
 import { useStyles } from "./LongPassStyle";
+import { useLocation } from "react-router-dom";
+import StatisticAPI from "../../../api/StatisticAPI";
 
 const LongPass = ({ Heading, img, className }) => {
   const classes = useStyles();
+
+  const location = useLocation();
+
+  const [LongPass, SetLongPass] = useState([]);
+
+  const PlayerLongPass = async () => {
+    const PlayerLongPass = await StatisticAPI.getTSPlayerStatisticLongPass(
+      location.state.id,
+      location.state.trainingSessionID
+    );
+    SetLongPass(PlayerLongPass);
+  };
+
+  useEffect(() => {
+    PlayerLongPass();
+  }, [location.state.id, location.state.trainingSessionID]);
+
   return (
     <div className={classes.MainContianer}>
       <div className={classes.HeadingWrapper}>
@@ -25,11 +44,11 @@ const LongPass = ({ Heading, img, className }) => {
           />
         </div>
         <div className={classes.LineChartWrapper}>
-          <LineChart title="25 M" />
-          <LineChart title="20 M" />
-          <LineChart title="15 M" />
-          <LineChart title="10 M" />
-          <LineChart title="5 M" />
+          {LongPass.map((result) => {
+            return result.Result.map((value) => {
+              return <LineChart title={value} />;
+            });
+          })}
           <LineChart title="START LINE" />
         </div>
       </div>

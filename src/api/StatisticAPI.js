@@ -326,6 +326,7 @@ const getTSPlayerStatisticSpeed = async (playerID, trainingSessionID) => {
 /**
  * Query a Player Statistics of specific TS of Speed exercise
  */
+
 const getTSPlayerFinalScore = async (playerID, trainingSessionID) => {
   let position = await PlayerAPI.getPlayerPosition(playerID);
   let final_score_array;
