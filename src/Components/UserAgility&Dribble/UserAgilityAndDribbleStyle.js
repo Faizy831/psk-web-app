@@ -3,10 +3,10 @@ import Bg2 from "../../assets/Bg2.png";
 
 export const useStyle = makeStyles((theme) => ({
   Wrapper: {
-    backgroundImage: `url(${Bg2})`,
-    width: "100%",
-    backgroundSize: "100% 100%",
-    backgroundRepeat: "no-repeat",
+    // backgroundImage: `url(${Bg2})`,
+    // width: "100%",
+    // backgroundSize: "100% 100%",
+    // backgroundRepeat: "no-repeat",
   },
   header: {
     display: "flex",

@@ -46,7 +46,7 @@ export const useStyles = makeStyles((theme) => ({
       paddingTop: "5rem",
     },
     ["@media (max-width: 450px)"]: {
-      paddingTop: "1rem",
+      paddingTop: "2.5rem",
     },
   },
   SpeedChartimg: {
@@ -67,7 +67,7 @@ export const useStyles = makeStyles((theme) => ({
       paddingTop: "5rem",
     },
     ["@media (max-width:450px)"]: {
-      paddingTop: "0rem",
+      paddingTop: "1rem",
     },
   },
 
@@ -78,15 +78,28 @@ export const useStyles = makeStyles((theme) => ({
   },
   Chart: {
     marginTop: 25,
+    ["@media (max-width: 500px)"]: {
+      width: "270px !important",
+    },
+    ["@media (max-width: 420px)"]: {
+      width: "230px !important",
+    },
   },
   Img: {
     width: 82,
     height: 280,
+    ["@media (max-width: 500px)"]: {
+      width: 60,
+      height: 250,
+    },
+    ["@media (max-width: 420px)"]: {
+      height: 240,
+    },
   },
   ChartBottomText: {
     display: "flex",
     justifyContent: "space-between",
-    marginTop: -80,
+    marginTop: -100,
   },
   BottomText: {
     color: "#797979",
@@ -104,6 +117,9 @@ export const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     margin: 0,
     textAlign: "center",
+    ["@media (max-width: 420px)"]: {
+      fontSize: theme.fonts.sizes.fontL,
+    },
   },
   SpeedNumber: {
     color: theme.colors.primary.white,
@@ -130,6 +146,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   TextWrapper: {
     marginTop: -90,
+    ["@media (max-width: 420px)"]: {
+      marginTop: -70,
+    },
   },
   AccelerationWrapper: {
     marginTop: 10,

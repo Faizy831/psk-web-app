@@ -19,8 +19,16 @@ const ShortPass = () => {
     );
   };
 
+  const Touches = async () => {
+    const Touches = await StatisticAPI.getTSPlayerStatisticTouches(
+      location.state.id,
+      location.state.trainingSessionID
+    );
+  };
+
   useEffect(() => {
     ShortPass();
+    Touches();
   }, [location.state.id, location.state.trainingSessionID]);
 
   return (

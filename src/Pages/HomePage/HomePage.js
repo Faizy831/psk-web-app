@@ -30,14 +30,16 @@ const HomePage = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.MainContianer}>
+    <div>
       <UserProfile />
-      <UserCalculations />
-      <UserPositions />
-      <UserPerfomance />
-      <UserAgilityAndDribble />
-      <UserLongPassGkReaction />
-      <Footer />
+      <div className={classes.MainContianer}>
+        <UserCalculations />
+        <UserPositions />
+        <UserPerfomance />
+        <UserAgilityAndDribble />
+        <UserLongPassGkReaction />
+        <Footer />
+      </div>
     </div>
   );
 };

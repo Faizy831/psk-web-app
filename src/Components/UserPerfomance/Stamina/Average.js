@@ -14,6 +14,7 @@ const Average = () => {
       location.state.id,
       location.state.trainingSessionID
     );
+    console.log(playerStamina, "playerStamina");
   };
 
   useEffect(() => {
