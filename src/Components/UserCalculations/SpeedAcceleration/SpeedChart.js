@@ -49,8 +49,8 @@ const SpeedChart = () => {
   const Acceleration =
     (3.6 *
       [
-        40 / ((AccFinishTime1 - AccStartTime1) * 0.001) +
-          40 / ((AccFinishTime2 - AccStartTime2) * 0.001),
+        10 / ((AccFinishTime1 - AccStartTime1) * 0.001) +
+          10 / ((AccFinishTime2 - AccStartTime2) * 0.001),
       ]) /
     2;
 
