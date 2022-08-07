@@ -36,7 +36,7 @@ const GkReaction = () => {
         />
       </div>
       <div className={classes.ScoreWrapper}>
-        <ScoreBoard />
+        <ScoreBoard showNum="Goalkeeper"/>
       </div>
     </div>
   );

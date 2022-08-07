@@ -36,7 +36,7 @@ const ShotAccuracy = () => {
         <Positions title="3RD" KilometerText="110 Km/h" />
       </div>
       <div className={classes.ScoreWrapper}>
-        <ScoreBoard showNum="ShortPass" />
+        <ScoreBoard showNum="Shooting" />
       </div>
     </div>
   );

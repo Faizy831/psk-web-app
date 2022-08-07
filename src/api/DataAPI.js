@@ -176,7 +176,7 @@ const getPlayerTrainingSessionAccuracyData = async (playerID,trainingSessionID) 
  */
  const getPlayerTrainingSessionGoalKeeperData = async (playerID,trainingSessionID) => {
     try {
-        let exercise = await ExerciseAPI.getExerciseByName("GoalKeeper")
+        let exercise = await ExerciseAPI.getExerciseByName("Goalkeeper")
         return (await DataStore.query(Score)).filter(
             data => 
             data.trainingsessionID === trainingSessionID &&

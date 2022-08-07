@@ -18,7 +18,7 @@ const SpeedAcceleration = () => {
         <SpeedChart />
       </div>
       <div className={classes.Wrapper}>
-        <ScoreBoard />
+        <ScoreBoard showNum="Speed"/>
       </div>
     </div>
   );

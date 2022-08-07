@@ -26,7 +26,7 @@ const VerticalJump = () => {
         />
       </div>
       <div className={classes.ScoreBoardWrapper}>
-        <ScoreBoard />
+        <ScoreBoard showNum="VerticalJump"/>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ const Stamina = () => {
         <Average />
       </div>
       <div className={classes.ScoreWrapper}>
-        <ScoreBoard />
+        <ScoreBoard showNum="Stamina"/>
       </div>
     </div>
   );

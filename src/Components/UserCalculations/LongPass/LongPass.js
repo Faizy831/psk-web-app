@@ -53,7 +53,7 @@ const LongPass = ({ Heading, img, className }) => {
         </div>
       </div>
       <div className={classes.ScoreWrapper}>
-        <ScoreBoard />
+        <ScoreBoard showNum="LongPass"/>
       </div>
     </div>
   );
