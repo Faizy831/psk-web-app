@@ -55,7 +55,11 @@ const ScoreBoard = ({ showNum }) => {
       location.state.id,
       location.state.trainingSessionID
     );
-    SetLongPassScore(parseInt(longpass[0].Data[0]));
+    if(parseInt(longpass[0].Data[0]) == "-1"){
+      SetLongPassScore("-");
+    }else{
+      SetLongPassScore(parseInt(longpass[0].Data[0]));
+    }
   };
 
   //ShortPass Score
@@ -64,7 +68,11 @@ const ScoreBoard = ({ showNum }) => {
       location.state.id,
       location.state.trainingSessionID
     );
-    SetShortPassScore(parseInt(shortpass[0].Data[0]));
+    if(parseInt(shortpass[0].Data[0]) == "-1"){
+      SetShortPassScore("-");
+    }else{
+      SetShortPassScore(parseInt(shortpass[0].Data[0]));
+    }
   };
 
   //Shooting Score
@@ -73,7 +81,11 @@ const ScoreBoard = ({ showNum }) => {
       location.state.id,
       location.state.trainingSessionID
     );
-    SetShootingScore(parseInt(shooting[0].Data[0]));
+    if(parseInt(shooting[0].Data[0]) == "-1"){
+      SetShootingScore("-");
+    }else{
+      SetShootingScore(parseInt(shooting[0].Data[0]));
+    }
   };
 
   //VerticalJump Score
@@ -82,7 +94,11 @@ const ScoreBoard = ({ showNum }) => {
       location.state.id,
       location.state.trainingSessionID
     );
-    SetVerticalJumpScore(parseInt(verticaljump[0].Data[0]));
+    if(parseInt(verticaljump[0].Data[0]) == "-1"){
+      SetVerticalJumpScore("-");
+    }else{
+      SetVerticalJumpScore(parseInt(verticaljump[0].Data[0]));
+    }
   };
 
   //Stamina Score
@@ -91,7 +107,11 @@ const ScoreBoard = ({ showNum }) => {
       location.state.id,
       location.state.trainingSessionID
     );
-    SetStaminaScore(parseInt(stamina[0].Data[0]));
+    if(parseInt(stamina[0].Data[0]) == "-1"){
+      SetStaminaScore("-");
+    }else{
+      SetStaminaScore(parseInt(stamina[0].Data[0]));
+    }
   };
 
   //Agility Score
@@ -100,7 +120,11 @@ const ScoreBoard = ({ showNum }) => {
       location.state.id,
       location.state.trainingSessionID
     );
-    SetAgilityScore(parseInt(agility[0].Data[0]));
+    if(parseInt(agility[0].Data[0]) == "-1"){
+      SetAgilityScore("-");
+    }else{
+      SetAgilityScore(parseInt(agility[0].Data[0]));
+    }
   };
 
   //Dribble Score
@@ -109,7 +133,11 @@ const ScoreBoard = ({ showNum }) => {
       location.state.id,
       location.state.trainingSessionID
     );
-    SetDribbleScore(parseInt(dribble[0].Data[0]));
+    if(parseInt(dribble[0].Data[0]) == "-1"){
+      SetDribbleScore("-");
+    }else{
+      SetDribbleScore(parseInt(dribble[0].Data[0]));
+    }
   };
 
   //LongPassHand Score
@@ -118,7 +146,11 @@ const ScoreBoard = ({ showNum }) => {
       location.state.id,
       location.state.trainingSessionID
     );
-    SetLongPassHandScore(parseInt(longpasshand[0].Data[0]));
+    if(parseInt(longpasshand[0].Data[0]) == "-1"){
+      SetLongPassHandScore("-");
+    }else{
+      SetLongPassHandScore(parseInt(longpasshand[0].Data[0]));
+    }
   };
 
   //Goalkeeper Score
@@ -127,7 +159,11 @@ const ScoreBoard = ({ showNum }) => {
       location.state.id,
       location.state.trainingSessionID
     );
-    SetGoalKeeperScore(parseInt(goalkeeper[0].Data[0]));
+    if(parseInt(goalkeeper[0].Data[0]) == "-1"){
+      SetGoalKeeperScore("-");
+    }else{
+      SetGoalKeeperScore(parseInt(goalkeeper[0].Data[0]));
+    }
   };
 
   useEffect(() => {
