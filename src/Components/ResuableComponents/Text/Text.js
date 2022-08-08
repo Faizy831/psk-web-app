@@ -3,7 +3,6 @@ import Shortpass from "../../../assets/Shortpass.png";
 import { useStyles } from "./TextStyle";
 
 const Text = ({ title, className }) => {
-  console.log(className, "class");
   const classes = useStyles();
   return (
     <div className={classes.TextContainer}>

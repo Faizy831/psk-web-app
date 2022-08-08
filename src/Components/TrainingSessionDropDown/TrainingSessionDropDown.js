@@ -136,7 +136,6 @@ export default function CustomizedInputs({
   const SingleTrainingSessionOfPlayer = async () => {
     const SingleTrainingSessionOfPlayer =
       await TraningSessionAPI.getTrainingSession(trainingSessionID);
-    console.log(SingleTrainingSessionOfPlayer)
     const Array = [];
     Array.push({ title: SingleTrainingSessionOfPlayer?.Type });
     SetSingleTrainingSession(Array);

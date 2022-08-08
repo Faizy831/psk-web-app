@@ -64,8 +64,6 @@ const getTrainingSessionDate = async (trainingSessionID) => {
  * Update training session
  */
 const updateTrainingSession = async (TS, newParameters) => {
-  console.log("item dentro do update: ", TS);
-  console.log("itemCopy dentro do update: ", newParameters);
   const TS1 = await getTrainingSession(TS.id);
 
   try {
